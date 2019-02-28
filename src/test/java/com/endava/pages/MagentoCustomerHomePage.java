@@ -40,7 +40,7 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
         return new MagentoCustomerLoginPage(driver);
     }
 
-    public String getCurrentStoreView(){
+    public String getCurrentStoreView() {
         return driver.findElement(By.cssSelector("div#switcher-language-trigger > strong > span")).getText();
     }
 
@@ -49,6 +49,12 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
         utilityMethods.clickAnElement(storeViewSelector);
         utilityMethods.waitForElementVisibility(alexTestStoreView);
         utilityMethods.clickAnElement(alexTestStoreView);
+    }
+
+    public MagentoCustomerDrinksPage goToDrinksProducts() throws InterruptedException {
+        utilityMethods.waitForElementVisibility(drinksProducts);
+        utilityMethods.clickAnElement(drinksProducts);
+        return new MagentoCustomerDrinksPage(driver);
     }
 
     protected void load() {
