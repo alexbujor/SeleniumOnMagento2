@@ -1,4 +1,4 @@
-package com.endava.pages;
+package com.endava.pages.magentoAdmin;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class MagentoAdminDashboardPage {
     @FindBy(css = "li#menu-magento-backend-stores > div > ul > li:nth-of-type(1) > ul > li:nth-of-type(1) > div > ul > li:nth-of-type(2)")
     private WebElement configurationButton;
 
-    UtilityMethods utilityMethods;
+    private UtilityMethods utilityMethods;
 
     public MagentoAdminDashboardPage(WebDriver driver) {
         this.driver = driver;

@@ -1,6 +1,9 @@
 package test;
 
-import com.endava.pages.*;
+import com.endava.pages.magentoCustomer.FirstProductFromDrinksPage;
+import com.endava.pages.magentoCustomer.MagentoCustomerDrinksPage;
+import com.endava.pages.magentoCustomer.MagentoCustomerHomePage;
+import com.endava.pages.magentoCustomer.MagentoCustomerLoginPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,10 +29,21 @@ public class MagentoCustomerPageObject {
         Assert.assertTrue("Magento Customer Home page is not opened", magentoCustomerHomePage.isOpened());
         System.out.println("R2. Successfully Signed in using my credentials");
 
-        System.out.println("S3. Change the store view");
+        System.out.println("S3. Change the store view and clear the cart in case it's not empty");
         magentoCustomerHomePage.changeToAlexStoreView();
         Assert.assertEquals("The store view was not changed", "Alex Test Store View", magentoCustomerHomePage.getCurrentStoreView());
+        if (!magentoCustomerHomePage.cartIsEmpty()) {
+            magentoCustomerHomePage.clearTheCart();
+        }
+        Assert.assertTrue("The cart is not empty", magentoCustomerHomePage.cartIsEmpty());
         System.out.println("R3. The store view was successfully changed");
+
+        System.out.println("S4. Go to Drinks Page and add a product to the cart");
+        MagentoCustomerDrinksPage magentoCustomerDrinksPage = magentoCustomerHomePage.goToDrinksProducts();
+        Assert.assertTrue("Magento Drinks Page is not opened", magentoCustomerDrinksPage.isOpened());
+        FirstProductFromDrinksPage firstProductFromDrinksPage = magentoCustomerDrinksPage.clickOnTheFirstProduct();
+        Assert.assertTrue("The page of the first product is not opened", firstProductFromDrinksPage.isOpened());
+        firstProductFromDrinksPage.addProductToCart("5");
     }
 
     @Before

@@ -1,9 +1,9 @@
 package test;
 
-import com.endava.pages.MagentoAdminConfigurationPage;
-import com.endava.pages.MagentoAdminDashboardPage;
-import com.endava.pages.MagentoAdminLoginPage;
-import com.endava.pages.MagentoAdminPaymentMethodsPage;
+import com.endava.pages.magentoAdmin.MagentoAdminConfigurationPage;
+import com.endava.pages.magentoAdmin.MagentoAdminDashboardPage;
+import com.endava.pages.magentoAdmin.MagentoAdminLoginPage;
+import com.endava.pages.magentoAdmin.MagentoAdminPaymentMethodsPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

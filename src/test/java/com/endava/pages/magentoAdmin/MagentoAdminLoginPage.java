@@ -1,4 +1,4 @@
-package com.endava.pages;
+package com.endava.pages.magentoAdmin;
 
 import com.endava.utils.UtilityMethods;
 import org.junit.Assert;
@@ -18,7 +18,7 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
     @FindBy(css = ".action-login.action-primary")
     private WebElement signInButton;
 
-    UtilityMethods utilityMethods;
+    private UtilityMethods utilityMethods;
 
     public MagentoAdminLoginPage(WebDriver driver) {
         this.driver = driver;

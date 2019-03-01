@@ -1,4 +1,4 @@
-package com.endava.pages;
+package com.endava.pages.magentoAdmin;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +38,7 @@ public class MagentoAdminPaymentMethodsPage {
     @FindBy(css = "div#messages > div.messages > div.message.message-success.success")
     private WebElement successfulSaveMessage;
 
-    UtilityMethods utilityMethods;
+    private UtilityMethods utilityMethods;
 
     public MagentoAdminPaymentMethodsPage(WebDriver driver) {
         this.driver = driver;

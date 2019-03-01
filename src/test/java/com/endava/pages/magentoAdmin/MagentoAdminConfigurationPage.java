@@ -1,4 +1,4 @@
-package com.endava.pages;
+package com.endava.pages.magentoAdmin;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class MagentoAdminConfigurationPage {
     @FindBy(css = "div#system_config_tabs div:nth-of-type(4) > ul li:nth-of-type(11)")
     private WebElement fraudProtection;
 
-    UtilityMethods utilityMethods;
+    private UtilityMethods utilityMethods;
 
     public MagentoAdminConfigurationPage(WebDriver driver) {
         this.driver = driver;
