@@ -6,7 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FirstProductFromDrinksPage {
+
+public class MagentoCustomerProductPage {
 
     private WebDriver driver;
     @FindBy(id = "qty")
@@ -14,19 +15,19 @@ public class FirstProductFromDrinksPage {
     @FindBy(id = "product-addtocart-button")
     private WebElement addToCartButton;
 
-    private String firstProductPageTitle;
+    private String productPageTitle;
 
     private UtilityMethods utilityMethods;
 
-    public FirstProductFromDrinksPage(WebDriver driver) {
+    public MagentoCustomerProductPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);
     }
 
-    public FirstProductFromDrinksPage(WebDriver driver, String firstProductPageTitle) {
+    MagentoCustomerProductPage(WebDriver driver, String firstProductPageTitle) {
         this.driver = driver;
-        this.firstProductPageTitle = firstProductPageTitle;
+        this.productPageTitle = firstProductPageTitle;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);
     }
@@ -40,6 +41,6 @@ public class FirstProductFromDrinksPage {
     }
 
     public boolean isOpened() {
-        return firstProductPageTitle.equals(driver.getTitle());
+        return productPageTitle.equals(driver.getTitle());
     }
 }

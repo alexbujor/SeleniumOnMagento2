@@ -14,16 +14,10 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     private WebDriver driver;
     @FindBy(css = ".authorization-link")
     private WebElement signInButton;
-    @FindBy(css = ".action.toggle.switcher-trigger")
+    @FindBy(id = "switcher-language-trigger")
     private WebElement storeViewSelector;
-    @FindBy(css = ".view-A13265419.switcher-option")
-    private WebElement alexTestStoreView;
-    @FindBy(css = ".level0.nav-1.first.level-top.ui-menu-item")
-    private WebElement drinksProducts;
-    @FindBy(css = ".level0.nav-2.level-top.ui-menu-item")
-    private WebElement booksProducts;
-    @FindBy(css = ".level0.nav-3.level-top.ui-menu-item")
-    private WebElement catFoodProducts;
+
+
     @FindBy(css = ".action.showcart")
     private WebElement miniCartButton;
     @FindBy(id = "btn-minicart-close")
@@ -41,6 +35,9 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     @FindBy(css = ".action.showcart > span > span")
     private WebElement cartProductNumbers;
 
+    private String productsCategoriesMenuCssSelector = "ul#ui-id-2 > li";
+    private String storeViewCssSelector = ".dropdown.switcher-dropdown > li";
+
     private UtilityMethods utilityMethods;
 
     public MagentoCustomerHomePage(WebDriver driver) {
@@ -57,47 +54,46 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     }
 
     public String getCurrentStoreView() {
-        return driver.findElement(By.cssSelector("div#switcher-language-trigger > strong > span")).getText();
+        return storeViewSelector.findElement(By.cssSelector("strong > span")).getText();
     }
 
-    public void changeToAlexStoreView() throws InterruptedException {
+    public void changeTheStoreView(String storeView) throws InterruptedException {
         utilityMethods.waitForElementVisibility(storeViewSelector);
         utilityMethods.clickAnElement(storeViewSelector);
-        utilityMethods.waitForElementVisibility(alexTestStoreView);
-        utilityMethods.clickAnElement(alexTestStoreView);
+        if (!getCurrentStoreView().equals(storeView))
+            utilityMethods.clickElementWithChildFromList(storeViewCssSelector, "a", storeView);
+        else utilityMethods.clickAnElement(storeViewSelector);
     }
 
-    public MagentoCustomerDrinksPage goToDrinksProducts() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(drinksProducts);
-        utilityMethods.clickAnElement(drinksProducts);
-        return new MagentoCustomerDrinksPage(driver);
-    }
-
-    public void clearTheCart() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(miniCartButton);
-        utilityMethods.clickAnElement(miniCartButton);
-        while (driver.findElements(By.cssSelector(".minicart-items > li:nth-of-type(1) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > a")).size() != 0) {
-            utilityMethods.clickAnElement(deleteItemFromCartButton);
-            utilityMethods.clickAnElement(acceptCartItemRemoval);
-        }
-        utilityMethods.waitForElementVisibility(closeMiniCart);
-        utilityMethods.clickAnElement(closeMiniCart);
+    public MagentoCustomerProductsCategoryPage goToCategoryOfProducts(String category) throws InterruptedException {
+        utilityMethods.clickElementFromList(productsCategoriesMenuCssSelector, category);
+        return new MagentoCustomerProductsCategoryPage(driver, category);
     }
 
     public boolean cartIsEmpty() {
         return (cartProductNumbers.getText().equals(""));
     }
 
+    public void clearTheCart() throws InterruptedException {
+        if (cartIsEmpty()) {
+            utilityMethods.waitForElementVisibility(miniCartButton);
+            utilityMethods.clickAnElement(miniCartButton);
+            while (utilityMethods.elementIsVisible(".minicart-items > li:nth-of-type(1) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > a")) {
+                utilityMethods.clickAnElement(deleteItemFromCartButton);
+                utilityMethods.clickAnElement(acceptCartItemRemoval);
+            }
+            utilityMethods.waitForElementVisibility(closeMiniCart);
+            utilityMethods.clickAnElement(closeMiniCart);
+        }
+    }
+
     public boolean checkTheCart(String name, String price, String quantity) throws InterruptedException {
         utilityMethods.waitForElementVisibility(miniCartButton);
         utilityMethods.clickAnElement(miniCartButton);
         utilityMethods.waitForElementVisibility(firstItemFromCartName);
-        if (firstItemFromCartName.getText() != name) return false;
-        if (firstItemFromCartPrice.getText() != price) return false;
-        if (firstItemFromCartQuantity.getAttribute("data-item-qty") != quantity) return false;
-        System.out.println(firstItemFromCartName.getText());
-        System.out.println(firstItemFromCartPrice.getText());
-        System.out.println(firstItemFromCartQuantity.getAttribute("data-item-qty"));
+        if (!firstItemFromCartName.getText().equals(name)) return false;
+        if (!firstItemFromCartName.getText().equals(price)) return false;
+        if (!firstItemFromCartQuantity.getAttribute("data-item-qty").equals(quantity)) return false;
         utilityMethods.waitForElementVisibility(closeMiniCart);
         utilityMethods.clickAnElement(closeMiniCart);
         return true;

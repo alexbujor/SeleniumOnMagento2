@@ -1,9 +1,9 @@
 package test;
 
-import com.endava.pages.magentoCustomer.FirstProductFromDrinksPage;
-import com.endava.pages.magentoCustomer.MagentoCustomerDrinksPage;
 import com.endava.pages.magentoCustomer.MagentoCustomerHomePage;
 import com.endava.pages.magentoCustomer.MagentoCustomerLoginPage;
+import com.endava.pages.magentoCustomer.MagentoCustomerProductPage;
+import com.endava.pages.magentoCustomer.MagentoCustomerProductsCategoryPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,11 +13,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MagentoCustomerPageObject {
-    WebDriver driver;
-    MagentoCustomerHomePage magentoCustomerHomePage;
+    private WebDriver driver;
+    private MagentoCustomerHomePage magentoCustomerHomePage;
     private String magentoCustomerEmail = "a2barcelona@yahoo.com";
     private String magentoCustomerPassword = "@Lex1234";
-    public static final String PATH_TO_CHROMEDRIVER = "C:/chromedriver.exe";
+    private String magentoCustomerStoreView = "Alex Test Store View";
+    private String magentoCustomerProductCategory = "Drinks";
+    private String magentoCustomerProductName = "Brandy - Plum";
+    private String magentoCustomerProductQuantity = "10";
+
+    private static final String PATH_TO_CHROMEDRIVER = "C:/chromedriver.exe";
 
     @Test
     public void makeAnOrder() throws InterruptedException {
@@ -30,20 +35,18 @@ public class MagentoCustomerPageObject {
         System.out.println("R2. Successfully Signed in using my credentials");
 
         System.out.println("S3. Change the store view and clear the cart in case it's not empty");
-        magentoCustomerHomePage.changeToAlexStoreView();
-        Assert.assertEquals("The store view was not changed", "Alex Test Store View", magentoCustomerHomePage.getCurrentStoreView());
-        if (!magentoCustomerHomePage.cartIsEmpty()) {
-            magentoCustomerHomePage.clearTheCart();
-        }
+        magentoCustomerHomePage.changeTheStoreView(magentoCustomerStoreView);
+        Assert.assertEquals("The store view was not changed", magentoCustomerStoreView, magentoCustomerHomePage.getCurrentStoreView());
+        magentoCustomerHomePage.clearTheCart();
         Assert.assertTrue("The cart is not empty", magentoCustomerHomePage.cartIsEmpty());
         System.out.println("R3. The store view was successfully changed");
 
         System.out.println("S4. Go to Drinks Page and add a product to the cart");
-        MagentoCustomerDrinksPage magentoCustomerDrinksPage = magentoCustomerHomePage.goToDrinksProducts();
-        Assert.assertTrue("Magento Drinks Page is not opened", magentoCustomerDrinksPage.isOpened());
-        FirstProductFromDrinksPage firstProductFromDrinksPage = magentoCustomerDrinksPage.clickOnTheFirstProduct();
-        Assert.assertTrue("The page of the first product is not opened", firstProductFromDrinksPage.isOpened());
-        firstProductFromDrinksPage.addProductToCart("5");
+        MagentoCustomerProductsCategoryPage magentoCustomerProductsCategoryPage = magentoCustomerHomePage.goToCategoryOfProducts("Drinks");
+        Assert.assertTrue("The page for that category of products is not found", magentoCustomerProductsCategoryPage.isOpened());
+        MagentoCustomerProductPage magentoCustomerProductPage = magentoCustomerProductsCategoryPage.goToProductPage("Brandy - Plum");
+        Assert.assertTrue("The product does not exist", magentoCustomerProductPage.isOpened());
+        magentoCustomerProductPage.addProductToCart("5");
     }
 
     @Before
@@ -61,7 +64,7 @@ public class MagentoCustomerPageObject {
         driver.quit();
     }
 
-    public void openPage() {
+    private void openPage() {
         System.out.println("S1. Open Magento Customer Home page");
         magentoCustomerHomePage = new MagentoCustomerHomePage(driver).get();
         Assert.assertTrue("Magento Customer Home page is not opened", magentoCustomerHomePage.isOpened());

@@ -6,11 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MagentoCustomerDrinksPage {
+public class MagentoCustomerProductsCategoryPage {
 
     private WebDriver driver;
-    @FindBy(css = ".products.list.items.product-items > li:nth-of-type(1) > div > div > strong > a")
-    private WebElement theFirstProductOnThePage;
     @FindBy(css = ".toolbar-sorter.sorter > select")
     private WebElement sortDropDown;
     @FindBy(css = ".toolbar-sorter.sorter > a")
@@ -18,10 +16,21 @@ public class MagentoCustomerDrinksPage {
     @FindBy(css = ".action.subscribe.primary")
     private WebElement subscribeButton;
 
+    private String productsListCssSelector = ".products.list.items.product-items";
+
+    private String categoryPageTitle;
+
     private UtilityMethods utilityMethods;
 
-    public MagentoCustomerDrinksPage(WebDriver driver) {
+    public MagentoCustomerProductsCategoryPage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
+        this.utilityMethods = new UtilityMethods(driver);
+    }
+
+    MagentoCustomerProductsCategoryPage(WebDriver driver, String categoryPageTitle) {
+        this.driver = driver;
+        this.categoryPageTitle = categoryPageTitle;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);
     }
@@ -38,15 +47,13 @@ public class MagentoCustomerDrinksPage {
         utilityMethods.clickAnElement(sortButton);
     }
 
-    public FirstProductFromDrinksPage clickOnTheFirstProduct() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(theFirstProductOnThePage);
+    public MagentoCustomerProductPage goToProductPage(String product) throws InterruptedException {
         utilityMethods.scrollToAnElement(subscribeButton);
-        String firstProductPageTitle = theFirstProductOnThePage.getText();
-        utilityMethods.clickAnElement(theFirstProductOnThePage);
-        return new FirstProductFromDrinksPage(driver, firstProductPageTitle);
+        utilityMethods.clickElementWithChildFromList(productsListCssSelector, "div > div > strong", product);
+        return new MagentoCustomerProductPage(driver, product);
     }
 
     public boolean isOpened() {
-        return "Drinks".equals(driver.getTitle());
+        return categoryPageTitle.equals(driver.getTitle());
     }
 }
