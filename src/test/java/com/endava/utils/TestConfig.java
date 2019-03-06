@@ -9,12 +9,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by oion on 4/7/2017.
- */
 public class TestConfig {
 
-    ResourceBundle prop = ResourceBundle.getBundle("defaultConfig");
+    private ResourceBundle prop = ResourceBundle.getBundle("defaultConfig");
     private Logger log = LoggerFactory.getLogger(TestConfig.class);
 
 
@@ -119,11 +116,11 @@ public class TestConfig {
         return baseURL;
     }
 
-    public BrowserType getBrowserType() {
+    BrowserType getBrowserType() {
         return browserType;
     }
 
-    public String getChromedriverPath() {
+    String getChromedriverPath() {
         return chromedriverPath;
     }
 
@@ -135,11 +132,11 @@ public class TestConfig {
         return pageWidth;
     }
 
-    public SeleniumServerType getSeleniumServerType() {
+    SeleniumServerType getSeleniumServerType() {
         return seleniumServerType;
     }
 
-    public URL getSeleniumServerURL() {
+    URL getSeleniumServerURL() {
         try {
             return new URL(seleniumServerURL);
         } catch (MalformedURLException e) {

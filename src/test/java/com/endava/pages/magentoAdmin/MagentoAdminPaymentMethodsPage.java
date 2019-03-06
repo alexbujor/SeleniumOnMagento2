@@ -13,8 +13,6 @@ public class MagentoAdminPaymentMethodsPage {
     private WebElement terminalSetup;
     @FindBy(id = "store-change-button")
     private WebElement storeViewSelector;
-    @FindBy(css = "ul.dropdown-menu > li:nth-of-type(4)")
-    private WebElement alexTestStoreView;
     @FindBy(css = ".action-primary.action-accept")
     private WebElement confirmStoreViewChange;
     @FindBy(id = "row_payment_us_authorizenet_directpost")
@@ -29,18 +27,18 @@ public class MagentoAdminPaymentMethodsPage {
     private WebElement paymentActionDropDown;
     @FindBy(id = "payment_us_converge_gateway_converge_gateway_options_integration_method")
     private WebElement integrationMethodDropDown;
-    @FindBy(id = "payment_us_converge_gateway_converge_gateway_options_license_text")
-    private WebElement licenseCodeTextField;
-    @FindBy(id = "payment_us_converge_gateway_converge_gateway_options_sflu_message")
-    private WebElement messageTextField;
+    @FindBy(id = "payment_us_converge_gateway_converge_gateway_options_tokenization")
+    private WebElement tokenizationDropDown;
     @FindBy(id = "save")
     private WebElement saveConfigButton;
     @FindBy(css = "div#messages > div.messages > div.message.message-success.success")
     private WebElement successfulSaveMessage;
 
+    private String storeViewCssSelector = ".dropdown-menu > li";
+
     private UtilityMethods utilityMethods;
 
-    public MagentoAdminPaymentMethodsPage(WebDriver driver) {
+    MagentoAdminPaymentMethodsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);
@@ -50,52 +48,47 @@ public class MagentoAdminPaymentMethodsPage {
         return storeViewSelector.getText();
     }
 
-    public void changeToAlexStoreView() throws InterruptedException {
+    public void changeTheStoreView(String storeView) throws InterruptedException {
         utilityMethods.waitForElementVisibility(storeViewSelector);
         utilityMethods.clickAnElement(storeViewSelector);
-        utilityMethods.waitForElementVisibility(alexTestStoreView);
-        utilityMethods.clickAnElement(alexTestStoreView);
-        utilityMethods.waitForElementVisibility(confirmStoreViewChange);
-        utilityMethods.clickAnElement(confirmStoreViewChange);
+        if (!getCurrentStoreView().equals(storeView)) {
+            utilityMethods.clickElementWithChildFromList(storeViewCssSelector, "a", storeView);
+            utilityMethods.waitForElementVisibility(confirmStoreViewChange);
+            utilityMethods.clickAnElement(confirmStoreViewChange);
+        } else utilityMethods.clickAnElement(storeViewSelector);
     }
 
-    public void scrollToAuthorizeNetDropDown() throws InterruptedException {
+    private void scrollToAuthorizeNetDropDown() throws InterruptedException {
         utilityMethods.scrollToAnElement(authorizeNetDropDown);
     }
 
-    public void changeTitle(String title) throws InterruptedException {
+    private void changeTitle(String title) throws InterruptedException {
+        utilityMethods.uncheckDefaultValue(titleTextField);
         utilityMethods.populateField(titleTextField, title);
     }
 
-    public void changeEnabled(String enabled) throws InterruptedException {
+    private void changeEnabled(String enabled) throws InterruptedException {
+        utilityMethods.uncheckDefaultValue(enabledDropDown);
         utilityMethods.chooseOptionFromDropDown(enabledDropDown, enabled);
     }
 
-    public void changePaymentAction(String paymentAction) throws InterruptedException {
+    private void changePaymentAction(String paymentAction) throws InterruptedException {
+        utilityMethods.uncheckDefaultValue(paymentActionDropDown);
         utilityMethods.chooseOptionFromDropDown(paymentActionDropDown, paymentAction);
     }
 
-    public void changeIntegrationMethod(String integrationMethod) throws InterruptedException {
+    private void changeIntegrationMethod(String integrationMethod) throws InterruptedException {
+        utilityMethods.uncheckDefaultValue(integrationMethodDropDown);
         utilityMethods.chooseOptionFromDropDown(integrationMethodDropDown, integrationMethod);
     }
 
-    public void changeLicenseCode(String licenseCode) throws InterruptedException {
-        utilityMethods.populateField(licenseCodeTextField, licenseCode);
-    }
-
-    public void changeSaveForLaterUseMessage(String message) throws InterruptedException {
-        utilityMethods.populateField(messageTextField, message);
-    }
-
-    public void changeConvergePaymentSettings(String title, String enabled, String paymentAction, String integrationMethod, String licenseCode, String message) throws InterruptedException {
+    public void changeBasicConvergePaymentSettings(String enabled, String title, String paymentAction, String integrationMethod) throws InterruptedException {
         scrollToAuthorizeNetDropDown();
         utilityMethods.clickAnElement(basicConvergePaymentSettings);
-        changeTitle(title);
         changeEnabled(enabled);
+        changeTitle(title);
         changePaymentAction(paymentAction);
         changeIntegrationMethod(integrationMethod);
-        changeLicenseCode(licenseCode);
-        changeSaveForLaterUseMessage(message);
     }
 
     public void saveTheConfiguration() throws InterruptedException {

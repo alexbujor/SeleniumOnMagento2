@@ -39,7 +39,7 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
     }
 
     protected void load() {
-        driver.get("http://172.17.186.107/magento225/admin_page/admin/index/index");
+        driver.get("http://172.17.186.107/magento21/admin_page/admin/index/index");
     }
 
     public boolean isOpened() {

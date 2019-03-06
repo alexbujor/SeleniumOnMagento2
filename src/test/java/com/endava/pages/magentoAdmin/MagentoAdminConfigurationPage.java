@@ -15,12 +15,12 @@ public class MagentoAdminConfigurationPage {
     private WebElement generalTabExpanded;
     @FindBy(css = "div#system_config_tabs div:nth-of-type(4) > ul li:nth-of-type(10)")
     private WebElement paymentMethods;
-    @FindBy(css = "div#system_config_tabs div:nth-of-type(4) > ul li:nth-of-type(11)")
-    private WebElement fraudProtection;
+    @FindBy(css = "div#system_config_tabs div:nth-of-type(7)")
+    private WebElement advancedTabCollapsed;
 
     private UtilityMethods utilityMethods;
 
-    public MagentoAdminConfigurationPage(WebDriver driver) {
+    MagentoAdminConfigurationPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);
@@ -34,7 +34,7 @@ public class MagentoAdminConfigurationPage {
     public MagentoAdminPaymentMethodsPage goToPaymentMethods() throws InterruptedException {
         utilityMethods.waitForElementVisibility(salesTabCollapsed);
         utilityMethods.clickAnElement(salesTabCollapsed);
-        utilityMethods.scrollToAnElement(fraudProtection);
+        utilityMethods.scrollToAnElement(advancedTabCollapsed);
         utilityMethods.waitForElementVisibility(paymentMethods);
         utilityMethods.clickAnElement(paymentMethods);
         return new MagentoAdminPaymentMethodsPage(driver);

@@ -8,13 +8,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created by oion on 4/7/2017.
- */
 public class WebdriverFactory {
 
     private static Logger log = LoggerFactory.getLogger(WebdriverFactory.class);
-    public static TestConfig testConfig;
+    private static TestConfig testConfig;
 
     public static WebDriver initDriver(TestConfig config) {
         testConfig = config;

@@ -9,11 +9,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
 
-/**
- * Created by oion on 4/7/2017.
- */
 public class ScreenShotRemoteWebDriver extends RemoteWebDriver implements TakesScreenshot {
-    public ScreenShotRemoteWebDriver(URL url, DesiredCapabilities capabilities) {
+    ScreenShotRemoteWebDriver(URL url, DesiredCapabilities capabilities) {
         super(url, capabilities);
     }
 

@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
+import java.util.List;
+
 public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHomePage> {
 
     private WebDriver driver;
@@ -16,27 +18,25 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     private WebElement signInButton;
     @FindBy(id = "switcher-language-trigger")
     private WebElement storeViewSelector;
-
-
     @FindBy(css = ".action.showcart")
     private WebElement miniCartButton;
     @FindBy(id = "btn-minicart-close")
     private WebElement closeMiniCart;
-    @FindBy(css = ".minicart-items > li:nth-of-type(1) > div > div > strong > a")
-    private WebElement firstItemFromCartName;
-    @FindBy(css = ".minicart-items > li:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > span > span > span > span")
-    private WebElement firstItemFromCartPrice;
-    @FindBy(css = ".minicart-items > li:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > input")
-    private WebElement firstItemFromCartQuantity;
-    @FindBy(css = ".minicart-items > li:nth-of-type(1) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > a")
-    private WebElement deleteItemFromCartButton;
     @FindBy(css = ".action-primary.action-accept")
     private WebElement acceptCartItemRemoval;
     @FindBy(css = ".action.showcart > span > span")
     private WebElement cartProductNumbers;
+    @FindBy(id = "top-cart-btn-checkout")
+    private WebElement proceedToCheckoutButton;
 
     private String productsCategoriesMenuCssSelector = "ul#ui-id-2 > li";
     private String storeViewCssSelector = ".dropdown.switcher-dropdown > li";
+    private String productsFromCartCssSelector = "ol#mini-cart > li";
+    private String productNameCssSelector = "div > div > strong > a";
+    private String productPriceCssSelector = "div > div > div:nth-of-type(1) > div:nth-of-type(1) > span > span > span > span";
+    private String productQuantityCssSelector = "div > div > div:nth-of-type(1) > div:nth-of-type(2) > input";
+    private String productRemoveButtonCssSelector = "div > div > div:nth-of-type(2) > div:nth-of-type(2) > a";
+    private String firstRemoveButtonCssSelector = ".minicart-items > li:nth-of-type(1) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > a";
 
     private UtilityMethods utilityMethods;
 
@@ -60,9 +60,9 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     public void changeTheStoreView(String storeView) throws InterruptedException {
         utilityMethods.waitForElementVisibility(storeViewSelector);
         utilityMethods.clickAnElement(storeViewSelector);
-        if (!getCurrentStoreView().equals(storeView))
-            utilityMethods.clickElementWithChildFromList(storeViewCssSelector, "a", storeView);
-        else utilityMethods.clickAnElement(storeViewSelector);
+        if (!getCurrentStoreView().equals(storeView)) {
+            utilityMethods.clickElementWithChildFromList(storeViewCssSelector, "a > span", storeView);
+        } else utilityMethods.clickAnElement(storeViewSelector);
     }
 
     public MagentoCustomerProductsCategoryPage goToCategoryOfProducts(String category) throws InterruptedException {
@@ -75,11 +75,12 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     }
 
     public void clearTheCart() throws InterruptedException {
-        if (cartIsEmpty()) {
+        if (!cartIsEmpty()) {
             utilityMethods.waitForElementVisibility(miniCartButton);
             utilityMethods.clickAnElement(miniCartButton);
-            while (utilityMethods.elementIsVisible(".minicart-items > li:nth-of-type(1) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > a")) {
-                utilityMethods.clickAnElement(deleteItemFromCartButton);
+            while (utilityMethods.elementIsVisible(firstRemoveButtonCssSelector)) {
+                utilityMethods.clickAnElement(driver.findElement(By.cssSelector(firstRemoveButtonCssSelector)));
+                utilityMethods.waitForElementVisibility(acceptCartItemRemoval);
                 utilityMethods.clickAnElement(acceptCartItemRemoval);
             }
             utilityMethods.waitForElementVisibility(closeMiniCart);
@@ -87,20 +88,40 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
         }
     }
 
-    public boolean checkTheCart(String name, String price, String quantity) throws InterruptedException {
+    public boolean checkProductInCartAndRemove(String name, String price, String quantity, Boolean removeProduct) throws InterruptedException {
         utilityMethods.waitForElementVisibility(miniCartButton);
         utilityMethods.clickAnElement(miniCartButton);
-        utilityMethods.waitForElementVisibility(firstItemFromCartName);
-        if (!firstItemFromCartName.getText().equals(name)) return false;
-        if (!firstItemFromCartName.getText().equals(price)) return false;
-        if (!firstItemFromCartQuantity.getAttribute("data-item-qty").equals(quantity)) return false;
-        utilityMethods.waitForElementVisibility(closeMiniCart);
-        utilityMethods.clickAnElement(closeMiniCart);
-        return true;
+        WebElement productName;
+        WebElement productPrice;
+        WebElement productQuantity;
+        WebElement productRemoveButton;
+        if (!cartIsEmpty()) {
+            List<WebElement> productsFromCartList = driver.findElements(By.cssSelector(productsFromCartCssSelector));
+            for (WebElement productFromCart : productsFromCartList) {
+                productName = productFromCart.findElement(By.cssSelector(productNameCssSelector));
+                productPrice = productFromCart.findElement(By.cssSelector(productPriceCssSelector));
+                productQuantity = productFromCart.findElement(By.cssSelector(productQuantityCssSelector));
+                productRemoveButton = productFromCart.findElement(By.cssSelector(productRemoveButtonCssSelector));
+                if (productName.getText().equals(name) && productPrice.getText().substring(1).equals(price) && productQuantity.getAttribute("data-item-qty").equals(quantity)) {
+                    if (removeProduct) {
+                        utilityMethods.clickAnElement(productRemoveButton);
+                        utilityMethods.waitForElementVisibility(acceptCartItemRemoval);
+                        utilityMethods.clickAnElement(acceptCartItemRemoval);
+                        utilityMethods.waitForElementVisibility(closeMiniCart);
+                        utilityMethods.clickAnElement(closeMiniCart);
+                        return true;
+                    }
+                    utilityMethods.waitForElementVisibility(closeMiniCart);
+                    utilityMethods.clickAnElement(closeMiniCart);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     protected void load() {
-        driver.get("http://172.17.186.107/magento225/");
+        driver.get("http://172.17.186.107/magento21/");
     }
 
     public boolean isOpened() {

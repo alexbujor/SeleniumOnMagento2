@@ -1,10 +1,13 @@
 package com.endava.pages.magentoCustomer;
 
 import com.endava.utils.UtilityMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class MagentoCustomerProductsCategoryPage {
 
@@ -15,8 +18,12 @@ public class MagentoCustomerProductsCategoryPage {
     private WebElement sortButton;
     @FindBy(css = ".action.subscribe.primary")
     private WebElement subscribeButton;
+    @FindBy(css = ".logo")
+    private WebElement logoButton;
 
-    private String productsListCssSelector = ".products.list.items.product-items";
+    private String productsListCssSelector = ".products.list.items.product-items > li";
+    private String productNameCssSelector = "div > div > strong > a";
+    private String productPriceCssSelector = "div > div > div:nth-of-type(1) > span > span > span";
 
     private String categoryPageTitle;
 
@@ -47,10 +54,28 @@ public class MagentoCustomerProductsCategoryPage {
         utilityMethods.clickAnElement(sortButton);
     }
 
-    public MagentoCustomerProductPage goToProductPage(String product) throws InterruptedException {
+    public MagentoCustomerProductPage goToProductPage(String product, String price) throws InterruptedException {
         utilityMethods.scrollToAnElement(subscribeButton);
-        utilityMethods.clickElementWithChildFromList(productsListCssSelector, "div > div > strong", product);
-        return new MagentoCustomerProductPage(driver, product);
+        Thread.sleep(1000);
+        WebElement productName;
+        WebElement productPrice;
+        List<WebElement> productsList = driver.findElements(By.cssSelector(productsListCssSelector));
+        for (WebElement productFromList : productsList) {
+            productName = productFromList.findElement(By.cssSelector(productNameCssSelector));
+            productPrice = productFromList.findElement(By.cssSelector(productPriceCssSelector));
+            if (productName.getText().equals(product) && productPrice.getText().substring(1).equals(price)) {
+                utilityMethods.waitForElementVisibility(productFromList);
+                utilityMethods.clickAnElement(productFromList);
+                break;
+            }
+        }
+        return new MagentoCustomerProductPage(driver, product, price);
+    }
+
+    public MagentoCustomerHomePage pressHomeButton() throws InterruptedException {
+        utilityMethods.waitForElementVisibility(logoButton);
+        utilityMethods.clickAnElement(logoButton);
+        return new MagentoCustomerHomePage(driver);
     }
 
     public boolean isOpened() {

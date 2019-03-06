@@ -17,14 +17,15 @@ public class MagentoAdminPageObject {
     private MagentoAdminLoginPage magentoAdminLoginPage;
     private String magentoAdminUsername = "abujor";
     private String magentoAdminPassword = "@lex123";
-    private String title = "Elavon";
+    private String magentoAdminStoreView = "Optional Store View - Store 2";
     private String enabled = "Yes";
+    private String title = "Elavon";
     private String paymentAction = "Authorize";
-    private String integrationMethod = "Hosted Payment Page (PCI SAQ A)";
+    private String integrationMethod = "Checkout JS";
     private static final String PATH_TO_CHROMEDRIVER = "C:/chromedriver.exe";
 
     @Test
-    public void changeConvergePaymentSettingsForAlexStoreView() throws InterruptedException {
+    public void changeConvergePaymentSettingsForDefaultStoreView() throws InterruptedException {
         System.out.println("S2. Log In with your credentials");
         magentoAdminLoginPage.fillLoginFields(magentoAdminUsername, magentoAdminPassword);
         MagentoAdminDashboardPage magentoAdminDashboardPage = magentoAdminLoginPage.pressSignInButton();
@@ -43,10 +44,10 @@ public class MagentoAdminPageObject {
         Assert.assertTrue("Magento Admin Payment Methods page is not opened", magentoAdminPaymentMethodsPage.isOpened());
         System.out.println("R4. Magento Admin Payment Methods page is opened");
 
-        System.out.println("S5. Configure a store view and save the changes");
-        magentoAdminPaymentMethodsPage.changeToAlexStoreView();
-        Assert.assertEquals("The store view was not changed", "Alex Test Store View", magentoAdminPaymentMethodsPage.getCurrentStoreView());
-        magentoAdminPaymentMethodsPage.changeConvergePaymentSettings(title, enabled, paymentAction, integrationMethod, "", "");
+        System.out.println("S5. Configure the Default Config store view and save the changes");
+        magentoAdminPaymentMethodsPage.changeTheStoreView(magentoAdminStoreView);
+        Assert.assertEquals("The store view was not changed", magentoAdminStoreView, magentoAdminPaymentMethodsPage.getCurrentStoreView());
+        magentoAdminPaymentMethodsPage.changeBasicConvergePaymentSettings(enabled, title, paymentAction, integrationMethod);
         magentoAdminPaymentMethodsPage.saveTheConfiguration();
         Assert.assertTrue("Configuration not saved successfully", magentoAdminPaymentMethodsPage.isSavedSuccessfully());
         System.out.println("R5. Configuration successfully changed for that store view");

@@ -25,7 +25,7 @@ public class UtilityMethods {
     }
 
     public boolean elementIsVisible(String cssSelector) {
-        return driver.findElements(By.cssSelector(cssSelector)).size() != 0;
+        return (driver.findElements(By.cssSelector(cssSelector)).size() != 0);
     }
 
     public void clickAnElement(WebElement element) throws InterruptedException {
@@ -54,18 +54,40 @@ public class UtilityMethods {
         Thread.sleep(1000);
     }
 
-//    public boolean elementIsInList(String cssSelector, String elementToFind) {
-//        List<WebElement> elementsList = driver.findElements(By.cssSelector(cssSelector));
-//        for (WebElement element : elementsList) {
-//            if (element.getText().equals(elementToFind))
-//                return true;
-//        }
-//        return false;
-//    }
+    private boolean fieldUsesDefaultValue(WebElement element) {
+        WebElement useDefaultCheckBox = driver.findElement(By.id(element.getAttribute("id") + "_inherit"));
+        return useDefaultCheckBox.getAttribute("checked").equals("true");
+    }
+
+    public void uncheckDefaultValue(WebElement element) throws InterruptedException {
+        WebElement useDefaultCheckBox = driver.findElement(By.id(element.getAttribute("id") + "_inherit"));
+        if (fieldUsesDefaultValue(element)) {
+            waitForElementVisibility(useDefaultCheckBox);
+            clickAnElement(useDefaultCheckBox);
+        }
+    }
+
+    public void checkDefaultValue(WebElement element) throws InterruptedException {
+        WebElement useDefaultCheckBox = driver.findElement(By.id(element.getAttribute("id") + "_inherit"));
+        if (!fieldUsesDefaultValue(element)) {
+            waitForElementVisibility(useDefaultCheckBox);
+            clickAnElement(useDefaultCheckBox);
+        }
+    }
+
+    public boolean elementIsInList(String cssSelector, String elementToFind) {
+        List<WebElement> elementsList = driver.findElements(By.cssSelector(cssSelector));
+        for (WebElement element : elementsList) {
+            if (element.getText().equals(elementToFind))
+                return true;
+        }
+        return false;
+    }
 
     public void clickElementFromList(String cssSelector, String elementToClick) throws InterruptedException {
-        List<WebElement> elementsList = driver.findElements(By.cssSelector(cssSelector));
-        for (WebElement elementFromList : elementsList) {
+        Thread.sleep(1000);
+        List<WebElement> listOfElements = driver.findElements(By.cssSelector(cssSelector));
+        for (WebElement elementFromList : listOfElements) {
             if (elementFromList.getText().equals(elementToClick)) {
                 waitForElementVisibility(elementFromList);
                 clickAnElement(elementFromList);
@@ -75,14 +97,18 @@ public class UtilityMethods {
     }
 
     public void clickElementWithChildFromList(String parentCssSelector, String childCssSelector, String elementToClick) throws InterruptedException {
-        List<WebElement> elementsList = driver.findElements(By.cssSelector(parentCssSelector));
-        for (WebElement elementFromList : elementsList) {
-            WebElement childOfElementFromList = elementFromList.findElement(By.cssSelector(childCssSelector));
-            System.out.println(childOfElementFromList.getText());
-            if (childOfElementFromList.getText().equals(elementToClick)) {
-                waitForElementVisibility(elementFromList);
-                clickAnElement(elementFromList);
-                break;
+        Thread.sleep(1000);
+        Integer childNumber = 0;
+        List<WebElement> listOfElements = driver.findElements(By.cssSelector(parentCssSelector));
+        for (WebElement elementFromList : listOfElements) {
+            childNumber++;
+            if (elementIsVisible(parentCssSelector + ":nth-of-type(" + childNumber.toString() + ") > " + childCssSelector)) {
+                WebElement childOfElementFromList = elementFromList.findElement(By.cssSelector(childCssSelector));
+                if (childOfElementFromList.getText().equals(elementToClick)) {
+                    waitForElementVisibility(elementFromList);
+                    clickAnElement(elementFromList);
+                    break;
+                }
             }
         }
     }
