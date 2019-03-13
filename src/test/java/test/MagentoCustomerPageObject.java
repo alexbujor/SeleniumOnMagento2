@@ -18,7 +18,7 @@ public class MagentoCustomerPageObject {
     private MagentoCustomerLoginPage magentoCustomerLoginPage;
     private MagentoCustomerProductsCategoryPage magentoCustomerProductsCategoryPage;
     private MagentoCustomerProductPage magentoCustomerProductPage;
-    private String magentoCustomerEmail = "a2barcelona@yahoo.com";
+    private String magentoCustomerEmail = "Shahraeh@jymfit.info";
     private String magentoCustomerPassword = "@Lex1234";
     private String magentoCustomerStoreView = "Alex Test Store View";
     private String magentoCustomerProductCategory = "Drinks";

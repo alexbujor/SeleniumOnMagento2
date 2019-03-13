@@ -39,7 +39,7 @@ public class UtilityMethods {
         Thread.sleep(1000);
     }
 
-    public void chooseOptionFromDropDown(WebElement dropDown, String option) throws InterruptedException {
+    private void chooseOptionFromDropDown(WebElement dropDown, String option) throws InterruptedException {
         Select dropDownSelect;
         dropDownSelect = new Select(dropDown);
         dropDownSelect.selectByVisibleText(option);
@@ -56,10 +56,10 @@ public class UtilityMethods {
 
     private boolean fieldUsesDefaultValue(WebElement element) {
         WebElement useDefaultCheckBox = driver.findElement(By.id(element.getAttribute("id") + "_inherit"));
-        return useDefaultCheckBox.getAttribute("checked").equals("true");
+        return (useDefaultCheckBox.getAttribute("checked") != null);
     }
 
-    public void uncheckDefaultValue(WebElement element) throws InterruptedException {
+    private void uncheckDefaultValue(WebElement element) throws InterruptedException {
         WebElement useDefaultCheckBox = driver.findElement(By.id(element.getAttribute("id") + "_inherit"));
         if (fieldUsesDefaultValue(element)) {
             waitForElementVisibility(useDefaultCheckBox);
@@ -73,6 +73,20 @@ public class UtilityMethods {
             waitForElementVisibility(useDefaultCheckBox);
             clickAnElement(useDefaultCheckBox);
         }
+    }
+
+    public void changeTextField(WebElement field, String valueToChange) throws InterruptedException {
+        if (fieldUsesDefaultValue(field)) {
+            uncheckDefaultValue(field);
+        }
+        populateField(field, valueToChange);
+    }
+
+    public void changeDropDownField(WebElement field, String valueToChange) throws InterruptedException {
+        if (fieldUsesDefaultValue(field)) {
+            uncheckDefaultValue(field);
+        }
+        chooseOptionFromDropDown(field, valueToChange);
     }
 
     public boolean elementIsInList(String cssSelector, String elementToFind) {

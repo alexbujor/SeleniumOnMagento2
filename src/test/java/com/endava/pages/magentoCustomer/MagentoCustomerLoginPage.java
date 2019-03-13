@@ -1,6 +1,7 @@
 package com.endava.pages.magentoCustomer;
 
 import com.endava.utils.UtilityMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,9 +17,11 @@ public class MagentoCustomerLoginPage {
     @FindBy(id = "send2")
     private WebElement signInButton;
 
+    private String invalidLogInMessageCssSelector = "div#message-error > div";
+
     private UtilityMethods utilityMethods;
 
-    public MagentoCustomerLoginPage(WebDriver driver) {
+    MagentoCustomerLoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);
@@ -33,6 +36,14 @@ public class MagentoCustomerLoginPage {
         utilityMethods.waitForElementVisibility(signInButton);
         utilityMethods.clickAnElement(signInButton);
         return new MagentoCustomerHomePage(driver);
+    }
+
+    public boolean logInErrorMessageIsDisplayed() {
+        if (utilityMethods.elementIsVisible(invalidLogInMessageCssSelector)) {
+            WebElement message = driver.findElement(By.cssSelector(invalidLogInMessageCssSelector));
+            return (message.getText().equals("Invalid login or password."));
+        }
+        return false;
     }
 
     public boolean isOpened() {

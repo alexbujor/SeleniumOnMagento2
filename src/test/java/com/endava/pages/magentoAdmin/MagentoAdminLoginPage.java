@@ -2,6 +2,7 @@ package com.endava.pages.magentoAdmin;
 
 import com.endava.utils.UtilityMethods;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,8 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
     private WebElement passwordField;
     @FindBy(css = ".action-login.action-primary")
     private WebElement signInButton;
+
+    private String invalidLogInMessageCssSelector = ".message.message-error.error > div";
 
     private UtilityMethods utilityMethods;
 
@@ -36,6 +39,14 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
         utilityMethods.waitForElementVisibility(signInButton);
         utilityMethods.clickAnElement(signInButton);
         return new MagentoAdminDashboardPage(driver);
+    }
+
+    public boolean logInErrorMessageIsDisplayed() {
+        if (utilityMethods.elementIsVisible(invalidLogInMessageCssSelector)) {
+            WebElement message = driver.findElement(By.cssSelector(invalidLogInMessageCssSelector));
+            return (message.getText().equals("You did not sign in correctly or your account is temporarily disabled."));
+        }
+        return false;
     }
 
     protected void load() {

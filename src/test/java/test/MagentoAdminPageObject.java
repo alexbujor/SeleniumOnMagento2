@@ -15,6 +15,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class MagentoAdminPageObject {
     private WebDriver driver;
     private MagentoAdminLoginPage magentoAdminLoginPage;
+    private MagentoAdminDashboardPage magentoAdminDashboardPage;
+    private MagentoAdminConfigurationPage magentoAdminConfigurationPage;
+    private MagentoAdminPaymentMethodsPage magentoAdminPaymentMethodsPage;
     private String magentoAdminUsername = "abujor";
     private String magentoAdminPassword = "@lex123";
     private String magentoAdminStoreView = "Optional Store View - Store 2";
@@ -26,21 +29,21 @@ public class MagentoAdminPageObject {
 
     @Test
     public void changeConvergePaymentSettingsForDefaultStoreView() throws InterruptedException {
-        System.out.println("S2. Log In with your credentials");
+        System.out.println("S2. Log in with your credentials");
         magentoAdminLoginPage.fillLoginFields(magentoAdminUsername, magentoAdminPassword);
-        MagentoAdminDashboardPage magentoAdminDashboardPage = magentoAdminLoginPage.pressSignInButton();
+        magentoAdminDashboardPage = magentoAdminLoginPage.pressSignInButton();
         Assert.assertTrue("Magento Admin Dashboard page is not opened", magentoAdminDashboardPage.isOpened());
         System.out.println("R2. Magento Admin Dashboard page is opened");
 
         System.out.println("S3. Go to Magento Admin Configuration");
         magentoAdminDashboardPage.closePopUp();
-        MagentoAdminConfigurationPage magentoAdminConfigurationPage = magentoAdminDashboardPage.goToConfigPage();
+        magentoAdminConfigurationPage = magentoAdminDashboardPage.goToConfigPage();
         Assert.assertTrue("Magento Admin Configuration page is not opened", magentoAdminConfigurationPage.isOpened());
         System.out.println("R3. Magento Admin Configuration page is opened");
 
         System.out.println("S4. Go to Magento Admin Payment Methods Tab");
         magentoAdminConfigurationPage.collapseGeneralTab();
-        MagentoAdminPaymentMethodsPage magentoAdminPaymentMethodsPage = magentoAdminConfigurationPage.goToPaymentMethods();
+        magentoAdminPaymentMethodsPage = magentoAdminConfigurationPage.goToPaymentMethods();
         Assert.assertTrue("Magento Admin Payment Methods page is not opened", magentoAdminPaymentMethodsPage.isOpened());
         System.out.println("R4. Magento Admin Payment Methods page is opened");
 

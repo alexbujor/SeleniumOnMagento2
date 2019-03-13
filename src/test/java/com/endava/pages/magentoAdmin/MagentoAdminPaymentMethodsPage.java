@@ -62,33 +62,13 @@ public class MagentoAdminPaymentMethodsPage {
         utilityMethods.scrollToAnElement(authorizeNetDropDown);
     }
 
-    private void changeTitle(String title) throws InterruptedException {
-        utilityMethods.uncheckDefaultValue(titleTextField);
-        utilityMethods.populateField(titleTextField, title);
-    }
-
-    private void changeEnabled(String enabled) throws InterruptedException {
-        utilityMethods.uncheckDefaultValue(enabledDropDown);
-        utilityMethods.chooseOptionFromDropDown(enabledDropDown, enabled);
-    }
-
-    private void changePaymentAction(String paymentAction) throws InterruptedException {
-        utilityMethods.uncheckDefaultValue(paymentActionDropDown);
-        utilityMethods.chooseOptionFromDropDown(paymentActionDropDown, paymentAction);
-    }
-
-    private void changeIntegrationMethod(String integrationMethod) throws InterruptedException {
-        utilityMethods.uncheckDefaultValue(integrationMethodDropDown);
-        utilityMethods.chooseOptionFromDropDown(integrationMethodDropDown, integrationMethod);
-    }
-
     public void changeBasicConvergePaymentSettings(String enabled, String title, String paymentAction, String integrationMethod) throws InterruptedException {
         scrollToAuthorizeNetDropDown();
         utilityMethods.clickAnElement(basicConvergePaymentSettings);
-        changeEnabled(enabled);
-        changeTitle(title);
-        changePaymentAction(paymentAction);
-        changeIntegrationMethod(integrationMethod);
+        utilityMethods.changeDropDownField(enabledDropDown, enabled);
+        utilityMethods.changeTextField(titleTextField, title);
+        utilityMethods.changeDropDownField(paymentActionDropDown, paymentAction);
+        utilityMethods.changeDropDownField(integrationMethodDropDown, integrationMethod);
     }
 
     public void saveTheConfiguration() throws InterruptedException {
