@@ -1,4 +1,4 @@
-package com.endava.pages.magentoAdmin;
+package com.endava.magentoAdmin.pages;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.WebDriver;
@@ -80,6 +80,6 @@ public class MagentoAdminPaymentMethodsPage {
     }
 
     public boolean isOpened() {
-        return terminalSetup.isDisplayed();
+        return ("Configuration / Settings / Stores / Magento Admin".equals(driver.getTitle()) && terminalSetup.isDisplayed());
     }
 }

@@ -1,22 +1,22 @@
-package com.endava.steps;
+package com.endava.magentoAdmin.steps;
 
-import com.endava.pages.magentoAdmin.MagentoAdminConfigurationPage;
-import com.endava.pages.magentoAdmin.MagentoAdminDashboardPage;
-import com.endava.pages.magentoAdmin.MagentoAdminLoginPage;
-import com.endava.pages.magentoAdmin.MagentoAdminPaymentMethodsPage;
+import com.endava.magentoAdmin.pages.MagentoAdminConfigurationPage;
+import com.endava.magentoAdmin.pages.MagentoAdminDashboardPage;
+import com.endava.magentoAdmin.pages.MagentoAdminLoginPage;
+import com.endava.magentoAdmin.pages.MagentoAdminPaymentMethodsPage;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.Before;
-import cucumber.api.java.After;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MagentoAdminStepDefs {
-    private WebDriver driver;
+    private static WebDriver driver;
     private MagentoAdminLoginPage magentoAdminLoginPage;
     private MagentoAdminDashboardPage magentoAdminDashboardPage;
     private MagentoAdminConfigurationPage magentoAdminConfigurationPage;
@@ -24,17 +24,19 @@ public class MagentoAdminStepDefs {
     private static final String PATH_TO_CHROMEDRIVER = "C:/chromedriver.exe";
 
     @Before
-    public void setup() {
+    public void setupMagentoAdminChromeDriver() {
+        System.out.println("maca");
         System.setProperty("webdriver.chrome.driver", PATH_TO_CHROMEDRIVER);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
-        options.setHeadless(true);
+        options.setHeadless(false);
         driver = new ChromeDriver(options);
     }
 
     @After
-    public void tearDown() {
+    public void tearDownMagentoAdminChromeDriver() {
+        System.out.println("hhhhhhhhhh");
         driver.quit();
     }
 
@@ -62,9 +64,9 @@ public class MagentoAdminStepDefs {
         } else Assert.assertFalse("Magento Admin Dashboard page is opened", magentoAdminDashboardPage.isOpened());
     }
 
-    @Then("^(?:he|admin) can see the invalid login error message")
+    @Then("^(?:he|admin) can see the invalid login error message on Admin Login page")
     public void invalidLogInErrorMessage() {
-        Assert.assertTrue("Error message not displayed", magentoAdminLoginPage.logInErrorMessageIsDisplayed());
+        Assert.assertTrue("Error message not displayed", magentoAdminLoginPage.invalidCredentialsErrorMessageIsDisplayed());
     }
 
     @And("^(?:he|admin) goes from the Dashboard page to the Configuration page")
@@ -102,7 +104,7 @@ public class MagentoAdminStepDefs {
         magentoAdminPaymentMethodsPage.saveTheConfiguration();
     }
 
-    @Then("^(?:he|admin) (can|can't) see the confirmation message")
+    @Then("^(?:he|admin) (can|can't) see the confirmation message that the configuration is saved successfully")
     public void savingConfirmationMessage(String argument) {
         if (argument.equals("can"))
             Assert.assertTrue("Configuration not saved successfully", magentoAdminPaymentMethodsPage.isSavedSuccessfully());

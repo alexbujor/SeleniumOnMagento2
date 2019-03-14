@@ -1,4 +1,4 @@
-package com.endava.pages.magentoCustomer;
+package com.endava.magentoCustomer.pages;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.By;
@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.concurrent.TimeUnit;
 
 public class MagentoCustomerProductPage {
 
@@ -43,7 +45,7 @@ public class MagentoCustomerProductPage {
         utilityMethods.populateField(quantityTextField, quantity);
         utilityMethods.waitForElementVisibility(addToCartButton);
         utilityMethods.clickAnElement(addToCartButton);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public boolean successfullyAddedToCartMessageDisplayed() {

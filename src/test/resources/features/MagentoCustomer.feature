@@ -1,10 +1,10 @@
 @all @magentoCustomerFunctionality
 Feature: Magento Admin
 
-  Scenario Outline: Change the Basic Converge Payment Settings for all the store views
+  Scenario Outline: Make an order as an existing customer with two different products
     Given customer opens the Magento Customer Home page
     And he goes to the Magento Customer Login page
-    And he enters the username abujor and the password @lex123 for Customer Login page
+    And he enters the email Shahraeh@jymfit.info and the password @Lex1234 for Customer Login page
     And he presses the Sign in button on the Customer Login page
     And he is redirected back to the Home page after logging in
     And he clears the cart
@@ -23,9 +23,9 @@ Feature: Magento Admin
       | Bikes            | Drinks           | rukavice      | Brandy - Plum | 5         | 14        | 1.00   | 1.01   |
 
 
-  Scenario: Log in with invalid user
-    Given admin opens the Magento Admin Login page
+  Scenario: Log in with an invalid customer account
+    Given customer opens the Magento Customer Home page
     And he enters the username abujor2 and the password @lex1234 for Admin Login page
     And he presses the Sign in button on the Admin Login page
     And he isn't redirected to the Dashboard page after logging in
-    And he can see the invalid login error message
+    And he can see the invalid login error message on Customer Login page

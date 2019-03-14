@@ -1,4 +1,4 @@
-package com.endava.pages.magentoCustomer;
+package com.endava.magentoCustomer.pages;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.By;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MagentoCustomerLoginPage {
+public class MagentoCustomerOrderPage {
 
     private WebDriver driver;
     @FindBy(id = "email")
@@ -21,7 +21,7 @@ public class MagentoCustomerLoginPage {
 
     private UtilityMethods utilityMethods;
 
-    MagentoCustomerLoginPage(WebDriver driver) {
+    MagentoCustomerOrderPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);

@@ -1,4 +1,4 @@
-package com.endava.pages.magentoCustomer;
+package com.endava.magentoCustomer.pages;
 
 import com.endava.utils.UtilityMethods;
 import org.junit.Assert;
@@ -27,10 +27,10 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     @FindBy(css = ".action.showcart > span > span")
     private WebElement cartProductNumbers;
     @FindBy(id = "top-cart-btn-checkout")
-    private WebElement proceedToCheckoutButton;
+    private WebElement goToCheckoutButton;
 
     private String productsCategoriesMenuCssSelector = "ul#ui-id-2 > li";
-    private String storeViewCssSelector = ".dropdown.switcher-dropdown > li";
+    private String storeViewDropdownCssSelector = ".dropdown.switcher-dropdown > li";
     private String productsFromCartCssSelector = "ol#mini-cart > li";
     private String productNameCssSelector = "div > div > strong > a";
     private String productPriceCssSelector = "div > div > div:nth-of-type(1) > div:nth-of-type(1) > span > span > span > span";
@@ -61,7 +61,7 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
         utilityMethods.waitForElementVisibility(storeViewSelector);
         utilityMethods.clickAnElement(storeViewSelector);
         if (!getCurrentStoreView().equals(storeView)) {
-            utilityMethods.clickElementWithChildFromList(storeViewCssSelector, "a > span", storeView);
+            utilityMethods.clickElementWithChildFromList(storeViewDropdownCssSelector, "a > span", storeView);
         } else utilityMethods.clickAnElement(storeViewSelector);
     }
 
@@ -118,6 +118,12 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
             }
         }
         return false;
+    }
+
+    public MagentoCustomerShippingCheckoutPage goToCheckout() throws InterruptedException {
+        utilityMethods.waitForElementVisibility(goToCheckoutButton);
+        utilityMethods.clickAnElement(goToCheckoutButton);
+        return new MagentoCustomerShippingCheckoutPage(driver);
     }
 
     protected void load() {

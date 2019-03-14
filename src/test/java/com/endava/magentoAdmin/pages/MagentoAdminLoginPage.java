@@ -1,4 +1,4 @@
-package com.endava.pages.magentoAdmin;
+package com.endava.magentoAdmin.pages;
 
 import com.endava.utils.UtilityMethods;
 import org.junit.Assert;
@@ -19,7 +19,7 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
     @FindBy(css = ".action-login.action-primary")
     private WebElement signInButton;
 
-    private String invalidLogInMessageCssSelector = ".message.message-error.error > div";
+    private String logInErrorMessageCssSelector = ".message.message-error.error > div";
 
     private UtilityMethods utilityMethods;
 
@@ -41,10 +41,18 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
         return new MagentoAdminDashboardPage(driver);
     }
 
-    public boolean logInErrorMessageIsDisplayed() {
-        if (utilityMethods.elementIsVisible(invalidLogInMessageCssSelector)) {
-            WebElement message = driver.findElement(By.cssSelector(invalidLogInMessageCssSelector));
+    public boolean invalidCredentialsErrorMessageIsDisplayed() {
+        if (utilityMethods.elementIsVisible(logInErrorMessageCssSelector)) {
+            WebElement message = driver.findElement(By.cssSelector(logInErrorMessageCssSelector));
             return (message.getText().equals("You did not sign in correctly or your account is temporarily disabled."));
+        }
+        return false;
+    }
+
+    public boolean invalidFormKeyErrorMessageIsDisplayed() {
+        if (utilityMethods.elementIsVisible(logInErrorMessageCssSelector)) {
+            WebElement message = driver.findElement(By.cssSelector(logInErrorMessageCssSelector));
+            return (message.getText().equals("Invalid Form Key. Please refresh the page."));
         }
         return false;
     }

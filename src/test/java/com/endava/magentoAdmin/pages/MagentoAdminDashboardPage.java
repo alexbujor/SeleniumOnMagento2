@@ -1,4 +1,4 @@
-package com.endava.pages.magentoAdmin;
+package com.endava.magentoAdmin.pages;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.WebDriver;

@@ -1,9 +1,9 @@
 package test;
 
-import com.endava.pages.magentoCustomer.MagentoCustomerHomePage;
-import com.endava.pages.magentoCustomer.MagentoCustomerLoginPage;
-import com.endava.pages.magentoCustomer.MagentoCustomerProductPage;
-import com.endava.pages.magentoCustomer.MagentoCustomerProductsCategoryPage;
+import com.endava.magentoCustomer.pages.MagentoCustomerHomePage;
+import com.endava.magentoCustomer.pages.MagentoCustomerLoginPage;
+import com.endava.magentoCustomer.pages.MagentoCustomerProductPage;
+import com.endava.magentoCustomer.pages.MagentoCustomerProductsCategoryPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -60,8 +60,6 @@ public class MagentoCustomerPageObject {
         magentoCustomerProductPage.addProductToCart("5");
         Assert.assertTrue("The confirmation message cannot be seen", magentoCustomerProductPage.successfullyAddedToCartMessageDisplayed());
         Assert.assertTrue("The product was not added to the cart", magentoCustomerHomePage.checkProductInCartAndRemove("Wizard of Oz", "2.00", "5", false));
-
-
     }
 
     @Before

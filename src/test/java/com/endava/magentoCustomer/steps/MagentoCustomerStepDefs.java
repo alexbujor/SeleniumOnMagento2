@@ -1,11 +1,11 @@
-package com.endava.steps;
+package com.endava.magentoCustomer.steps;
 
-import com.endava.pages.magentoCustomer.MagentoCustomerHomePage;
-import com.endava.pages.magentoCustomer.MagentoCustomerLoginPage;
-import com.endava.pages.magentoCustomer.MagentoCustomerProductPage;
-import com.endava.pages.magentoCustomer.MagentoCustomerProductsCategoryPage;
-import cucumber.api.java.Before;
+import com.endava.magentoCustomer.pages.MagentoCustomerHomePage;
+import com.endava.magentoCustomer.pages.MagentoCustomerLoginPage;
+import com.endava.magentoCustomer.pages.MagentoCustomerProductPage;
+import com.endava.magentoCustomer.pages.MagentoCustomerProductsCategoryPage;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MagentoCustomerStepDefs {
-    private WebDriver driver;
+    private static WebDriver driver;
     private MagentoCustomerHomePage magentoCustomerHomePage;
     private MagentoCustomerLoginPage magentoCustomerLoginPage;
     private MagentoCustomerProductsCategoryPage magentoCustomerProductsCategoryPage;
@@ -24,17 +24,19 @@ public class MagentoCustomerStepDefs {
     private static final String PATH_TO_CHROMEDRIVER = "C:/chromedriver.exe";
 
     @Before
-    public void setup() {
+    public void setupMagentoCustomerChromeDriver() {
+        System.out.println("caca");
         System.setProperty("webdriver.chrome.driver", PATH_TO_CHROMEDRIVER);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
-        options.setHeadless(true);
+        options.setHeadless(false);
         driver = new ChromeDriver(options);
     }
 
     @After
-    public void tearDown() {
+    public void tearDownMagentoCustomerChromeDriver() {
+        System.out.println("styjstjstyk");
         driver.quit();
     }
 
@@ -50,8 +52,8 @@ public class MagentoCustomerStepDefs {
         Assert.assertTrue("Magento Customer Login Page is not opened", magentoCustomerLoginPage.isOpened());
     }
 
-    @And("^(?:he|customer) enters the username (.*) and the password (.*) for Customer Login page$")
-    public void enterMagentoAdminLogInCredentials(String username, String password) throws InterruptedException {
+    @And("^(?:he|customer) enters the email (.*) and the password (.*) for Customer Login page$")
+    public void enterMagentoCustomerLogInCredentials(String username, String password) throws InterruptedException {
         magentoCustomerLoginPage.fillLoginFields(username, password);
     }
 
@@ -67,7 +69,7 @@ public class MagentoCustomerStepDefs {
         else Assert.assertFalse("Magento Admin Dashboard page is opened", magentoCustomerHomePage.isOpened());
     }
 
-    @Then("^(?:he|customer) can see the invalid login error message")
+    @Then("^(?:he|customer) can see the invalid login error message on Customer Login page")
     public void invalidLogInErrorMessage() {
         Assert.assertTrue("Error message not displayed", magentoCustomerLoginPage.logInErrorMessageIsDisplayed());
     }
@@ -78,7 +80,7 @@ public class MagentoCustomerStepDefs {
         Assert.assertTrue("The cart is not empty", magentoCustomerHomePage.cartIsEmpty());
     }
 
-    @And("^(?:he|customer) goes the (.*) category of products$")
+    @When("^(?:he|customer) goes the (.*) category of products$")
     public void goToProductCategoryPage(String productCategory) throws InterruptedException {
         magentoCustomerProductsCategoryPage = magentoCustomerHomePage.goToCategoryOfProducts(productCategory);
         Assert.assertTrue("The page for that category of products is not found", magentoCustomerProductsCategoryPage.isOpened());

@@ -1,4 +1,4 @@
-package com.endava.pages.magentoCustomer;
+package com.endava.magentoCustomer.pages;
 
 import com.endava.utils.UtilityMethods;
 import org.openqa.selenium.By;
@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MagentoCustomerProductsCategoryPage {
 
@@ -56,7 +57,7 @@ public class MagentoCustomerProductsCategoryPage {
 
     public MagentoCustomerProductPage goToProductPage(String product, String price) throws InterruptedException {
         utilityMethods.scrollToAnElement(subscribeButton);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement productName;
         WebElement productPrice;
         List<WebElement> productsList = driver.findElements(By.cssSelector(productsListCssSelector));
