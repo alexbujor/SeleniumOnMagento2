@@ -44,20 +44,17 @@ public class MagentoCustomerProductsCategoryPage {
     }
 
     public void sortDescending() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(sortButton);
         utilityMethods.scrollToAnElement(subscribeButton);
         utilityMethods.clickAnElement(sortButton);
     }
 
     public void sortAscending() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(sortButton);
         utilityMethods.scrollToAnElement(subscribeButton);
         utilityMethods.clickAnElement(sortButton);
     }
 
     public MagentoCustomerProductPage goToProductPage(String product, String price) throws InterruptedException {
         utilityMethods.scrollToAnElement(subscribeButton);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement productName;
         WebElement productPrice;
         List<WebElement> productsList = driver.findElements(By.cssSelector(productsListCssSelector));
@@ -65,7 +62,6 @@ public class MagentoCustomerProductsCategoryPage {
             productName = productFromList.findElement(By.cssSelector(productNameCssSelector));
             productPrice = productFromList.findElement(By.cssSelector(productPriceCssSelector));
             if (productName.getText().equals(product) && productPrice.getText().substring(1).equals(price)) {
-                utilityMethods.waitForElementVisibility(productFromList);
                 utilityMethods.clickAnElement(productFromList);
                 break;
             }
@@ -74,7 +70,6 @@ public class MagentoCustomerProductsCategoryPage {
     }
 
     public MagentoCustomerHomePage pressHomeButton() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(logoButton);
         utilityMethods.clickAnElement(logoButton);
         return new MagentoCustomerHomePage(driver);
     }

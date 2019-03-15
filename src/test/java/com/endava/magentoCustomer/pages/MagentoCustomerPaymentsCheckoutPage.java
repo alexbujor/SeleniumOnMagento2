@@ -51,13 +51,12 @@ public class MagentoCustomerPaymentsCheckoutPage {
     }
 
     public MagentoCustomerSuccessPage placeTheOrder() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(placeOrderButton);
         utilityMethods.clickAnElement(placeOrderButton);
         return new MagentoCustomerSuccessPage(driver);
     }
 
     public boolean transactionDeclinedMessageDisplayed() {
-        if (utilityMethods.elementIsVisible(transactionDeclinedMessageCssSelector)) {
+        if (utilityMethods.elementIsVisible(By.cssSelector(transactionDeclinedMessageCssSelector))) {
             WebElement message = driver.findElement(By.cssSelector(transactionDeclinedMessageCssSelector));
             return (message.getText().equals("Transaction declined."));
         }

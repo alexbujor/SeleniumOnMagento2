@@ -25,7 +25,6 @@ public class MagentoAdminStepDefs {
 
     @Before
     public void setupMagentoAdminChromeDriver() {
-        System.out.println("maca");
         System.setProperty("webdriver.chrome.driver", PATH_TO_CHROMEDRIVER);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
@@ -36,7 +35,6 @@ public class MagentoAdminStepDefs {
 
     @After
     public void tearDownMagentoAdminChromeDriver() {
-        System.out.println("hhhhhhhhhh");
         driver.quit();
     }
 
@@ -61,7 +59,7 @@ public class MagentoAdminStepDefs {
         if (argument.equals("is")) {
             Assert.assertTrue("Magento Admin Dashboard page is not opened", magentoAdminDashboardPage.isOpened());
             magentoAdminDashboardPage.closePopUp();
-        } else Assert.assertFalse("Magento Admin Dashboard page is opened", magentoAdminDashboardPage.isOpened());
+        } else Assert.assertTrue("Magento Admin Login page is not opened", magentoAdminLoginPage.isOpened());
     }
 
     @Then("^(?:he|admin) can see the invalid login error message on Admin Login page")

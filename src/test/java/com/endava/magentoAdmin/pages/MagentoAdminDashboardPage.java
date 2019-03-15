@@ -18,7 +18,7 @@ public class MagentoAdminDashboardPage {
 
     private UtilityMethods utilityMethods;
 
-    public MagentoAdminDashboardPage(WebDriver driver) {
+    MagentoAdminDashboardPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.utilityMethods = new UtilityMethods(driver);
@@ -30,9 +30,7 @@ public class MagentoAdminDashboardPage {
     }
 
     public MagentoAdminConfigurationPage goToConfigPage() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(stores);
         utilityMethods.clickAnElement(stores);
-        utilityMethods.waitForElementVisibility(configurationButton);
         utilityMethods.clickAnElement(configurationButton);
         return new MagentoAdminConfigurationPage(driver);
     }

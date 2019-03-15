@@ -27,15 +27,12 @@ public class MagentoAdminConfigurationPage {
     }
 
     public void collapseGeneralTab() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(generalTabExpanded);
         utilityMethods.clickAnElement(generalTabExpanded);
     }
 
     public MagentoAdminPaymentMethodsPage goToPaymentMethods() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(salesTabCollapsed);
         utilityMethods.clickAnElement(salesTabCollapsed);
         utilityMethods.scrollToAnElement(advancedTabCollapsed);
-        utilityMethods.waitForElementVisibility(paymentMethods);
         utilityMethods.clickAnElement(paymentMethods);
         return new MagentoAdminPaymentMethodsPage(driver);
     }

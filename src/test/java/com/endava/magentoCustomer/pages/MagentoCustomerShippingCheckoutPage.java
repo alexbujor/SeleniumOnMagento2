@@ -23,7 +23,6 @@ public class MagentoCustomerShippingCheckoutPage {
     }
 
     public MagentoCustomerPaymentsCheckoutPage goToPaymentsCheckoutPage() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(nextButton);
         utilityMethods.clickAnElement(nextButton);
         return new MagentoCustomerPaymentsCheckoutPage(driver);
     }

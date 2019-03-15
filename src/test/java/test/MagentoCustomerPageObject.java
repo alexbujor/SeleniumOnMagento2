@@ -1,9 +1,6 @@
 package test;
 
-import com.endava.magentoCustomer.pages.MagentoCustomerHomePage;
-import com.endava.magentoCustomer.pages.MagentoCustomerLoginPage;
-import com.endava.magentoCustomer.pages.MagentoCustomerProductPage;
-import com.endava.magentoCustomer.pages.MagentoCustomerProductsCategoryPage;
+import com.endava.magentoCustomer.pages.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,6 +13,7 @@ public class MagentoCustomerPageObject {
     private WebDriver driver;
     private MagentoCustomerHomePage magentoCustomerHomePage;
     private MagentoCustomerLoginPage magentoCustomerLoginPage;
+    private MagentoCustomerMyDashboardPage magentoCustomerMyDashboardPage;
     private MagentoCustomerProductsCategoryPage magentoCustomerProductsCategoryPage;
     private MagentoCustomerProductPage magentoCustomerProductPage;
     private String magentoCustomerEmail = "Shahraeh@jymfit.info";
@@ -34,8 +32,8 @@ public class MagentoCustomerPageObject {
         magentoCustomerLoginPage = magentoCustomerHomePage.pressSignInButton();
         Assert.assertTrue("Magento Customer Login Page is not opened", magentoCustomerLoginPage.isOpened());
         magentoCustomerLoginPage.fillLoginFields(magentoCustomerEmail, magentoCustomerPassword);
-        magentoCustomerHomePage = magentoCustomerLoginPage.pressSignInButton();
-        Assert.assertTrue("Magento Customer Home page is not opened", magentoCustomerHomePage.isOpened());
+        magentoCustomerMyDashboardPage = magentoCustomerLoginPage.pressSignInButton();
+        Assert.assertTrue("Magento Customer My Dashboard page is not opened", magentoCustomerMyDashboardPage.isOpened());
         System.out.println("R2. Successfully Signed in using my credentials");
 
         System.out.println("S3. Change the store view and clear the cart in case it's not empty");

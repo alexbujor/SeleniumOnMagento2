@@ -1,7 +1,5 @@
-package com.endava;
+package com.endava.utils;
 
-import com.endava.utils.TestConfig;
-import com.endava.utils.WebdriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;

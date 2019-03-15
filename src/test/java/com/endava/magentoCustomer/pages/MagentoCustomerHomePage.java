@@ -24,14 +24,14 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     private WebElement closeMiniCart;
     @FindBy(css = ".action-primary.action-accept")
     private WebElement acceptCartItemRemoval;
-    @FindBy(css = ".action.showcart > span > span")
+    @FindBy(css = ".action.showcart > span:nth-of-type(2) > span:nth-of-type(1)")
     private WebElement cartProductNumbers;
     @FindBy(id = "top-cart-btn-checkout")
     private WebElement goToCheckoutButton;
 
-    private String productsCategoriesMenuCssSelector = "ul#ui-id-2 > li";
+    private String productsCategoriesMenuCssSelector = ".sections.nav-sections > div > div:nth-of-type(2) > nav > ul > li";
     private String storeViewDropdownCssSelector = ".dropdown.switcher-dropdown > li";
-    private String productsFromCartCssSelector = "ol#mini-cart > li";
+    private String productsFromCartCssSelector = ".minicart-items-wrapper > ol > li";
     private String productNameCssSelector = "div > div > strong > a";
     private String productPriceCssSelector = "div > div > div:nth-of-type(1) > div:nth-of-type(1) > span > span > span > span";
     private String productQuantityCssSelector = "div > div > div:nth-of-type(1) > div:nth-of-type(2) > input";
@@ -48,7 +48,6 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     }
 
     public MagentoCustomerLoginPage pressSignInButton() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(signInButton);
         utilityMethods.clickAnElement(signInButton);
         return new MagentoCustomerLoginPage(driver);
     }
@@ -58,7 +57,6 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     }
 
     public void changeTheStoreView(String storeView) throws InterruptedException {
-        utilityMethods.waitForElementVisibility(storeViewSelector);
         utilityMethods.clickAnElement(storeViewSelector);
         if (!getCurrentStoreView().equals(storeView)) {
             utilityMethods.clickElementWithChildFromList(storeViewDropdownCssSelector, "a > span", storeView);
@@ -70,20 +68,19 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
         return new MagentoCustomerProductsCategoryPage(driver, category);
     }
 
-    public boolean cartIsEmpty() {
+    public boolean cartIsEmpty() throws InterruptedException {
+        utilityMethods.waitSomeMillis(1000);
         return (cartProductNumbers.getText().equals(""));
     }
 
     public void clearTheCart() throws InterruptedException {
         if (!cartIsEmpty()) {
-            utilityMethods.waitForElementVisibility(miniCartButton);
             utilityMethods.clickAnElement(miniCartButton);
-            while (utilityMethods.elementIsVisible(firstRemoveButtonCssSelector)) {
+            while (utilityMethods.elementIsVisible(By.cssSelector(firstRemoveButtonCssSelector))) {
                 utilityMethods.clickAnElement(driver.findElement(By.cssSelector(firstRemoveButtonCssSelector)));
-                utilityMethods.waitForElementVisibility(acceptCartItemRemoval);
                 utilityMethods.clickAnElement(acceptCartItemRemoval);
+                utilityMethods.waitSomeMillis(1000);
             }
-            utilityMethods.waitForElementVisibility(closeMiniCart);
             utilityMethods.clickAnElement(closeMiniCart);
         }
     }
@@ -105,13 +102,10 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
                 if (productName.getText().equals(name) && productPrice.getText().substring(1).equals(price) && productQuantity.getAttribute("data-item-qty").equals(quantity)) {
                     if (removeProduct) {
                         utilityMethods.clickAnElement(productRemoveButton);
-                        utilityMethods.waitForElementVisibility(acceptCartItemRemoval);
                         utilityMethods.clickAnElement(acceptCartItemRemoval);
-                        utilityMethods.waitForElementVisibility(closeMiniCart);
                         utilityMethods.clickAnElement(closeMiniCart);
                         return true;
                     }
-                    utilityMethods.waitForElementVisibility(closeMiniCart);
                     utilityMethods.clickAnElement(closeMiniCart);
                     return true;
                 }
@@ -121,7 +115,6 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     }
 
     public MagentoCustomerShippingCheckoutPage goToCheckout() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(goToCheckoutButton);
         utilityMethods.clickAnElement(goToCheckoutButton);
         return new MagentoCustomerShippingCheckoutPage(driver);
     }

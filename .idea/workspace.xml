@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="986b0214-7770-497a-9d46-a85c785c040c" name="Default" comment="Created the feature files for Admin and Customer and the stepdefs files for each one plus some updates on the old files">
+    <list default="true" id="986b0214-7770-497a-9d46-a85c785c040c" name="Default" comment="Some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminConfigurationPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminDashboardPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminLoginPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminPaymentMethodsPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerHomePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerLoginPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerProductPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerProductsCategoryPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/steps/MagentoAdminStepDefs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/steps/MagentoCustomerStepDefs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test/MagentoAdminPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/MagentoAdminPageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/ReusableWebDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/utils/ReusableWebDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/RunCukesByTags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/RunMagentoAdminCukesByTags.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminConfigurationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminConfigurationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminDashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminDashboardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminLoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminPaymentMethodsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminPaymentMethodsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoAdminStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoAdminStepDefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerHomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerLoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerOrderPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerOrderPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerPaymentsCheckoutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerPaymentsCheckoutPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductsCategoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductsCategoryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerShippingCheckoutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerShippingCheckoutPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/endava/utils/UtilityMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/endava/utils/UtilityMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/MagentoCustomerPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/MagentoCustomerPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/magentoAdmin/MagentoAdmin.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/magentoCustomer/MagentoCustomer.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/endava/ReusableWebDriver$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/endava/ReusableWebDriver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/endava/RunCukesByTags.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/endava/utils/UtilityMethods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/endava/utils/UtilityMethods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/MagentoAdminPageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/MagentoAdminPageObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/test/MagentoCustomerPageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/MagentoCustomerPageObject.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,31 +39,59 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/utils/UtilityMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="255">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+              <folding>
+                <element signature="e#926#927#0" expanded="true" />
+                <element signature="e#992#993#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerHomePage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1071">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/features/magentoAdmin/MagentoAdmin.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/features/magentoCustomer/MagentoCustomer.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminLoginPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -72,7 +107,6 @@
       <find>clickElementWithChildFromList</find>
       <find>clickElementFromList</find>
       <find>befor</find>
-      <find>glue</find>
       <find>c</find>
       <find>remove</find>
       <find>find</find>
@@ -85,11 +119,17 @@
       <find>new MagentoAdminLoginPage(driver).get()</find>
       <find>(driver).get()</find>
       <find>load()</find>
+      <find>admin</find>
+      <find>custo</find>
+      <find>ad</find>
+      <find>cart</find>
+      <find>glue</find>
+      <find>throws InterruptedException</find>
     </findStrings>
     <replaceStrings>
       <replace>private UtilityMethods utilityMethods;</replace>
-      <replace />
       <replace>driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);</replace>
+      <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -98,27 +138,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/endava/ReusableWebDriver.java" />
-        <option value="$PROJECT_DIR$/src/test/java/endava/pages/MagentoAdminConfigurationPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/enums/BrowserType.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/enums/SeleniumServerType.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/ReusableWebDriver.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/MagentoAdminConfigurationPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/MagentoAdminDashboardPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/MagentoAdminLoginPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/MagentoCustomerLoginPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/MagentoAdminPaymentMethodsPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/MagentoCustomerHomePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/MagentoCustomerDrinksPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/FirstProductFromDrinksPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerDrinksPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/FirstProductFromDrinksPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/TestConfig.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/ScreenShotRemoteWebDriver.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/WebdriverFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/steps/MyStepdefs.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/RunCukesByTags.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerSuccessPage.java" />
         <option value="$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminLoginPage.java" />
@@ -132,8 +156,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerShippingCheckoutPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerPaymentsCheckoutPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminConfigurationPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/UtilityMethods.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/steps/MagentoCustomerStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/steps/MagentoAdminStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerStepDefs.java" />
@@ -142,10 +164,31 @@
         <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/magentoCustomer/MagentoCustomerSuccessPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/magentoCustomer/MagentoCustomerSuccessPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerSuccessPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerMyAccountPage.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerMyDashboardPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/RunCukesByTags.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/RunCukesByTags.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/RunMagentoCustomerCukesByTags.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/RunMagentoAdminCukesByTags.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/RunMagentoCustomerCukesByTags.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/utils/UtilityMethods.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerPaymentsCheckoutPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminDashboardPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerOrderPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerLoginPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductsCategoryPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerShippingCheckoutPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminConfigurationPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminPaymentMethodsPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminLoginPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/MagentoCustomerPageObject.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoAdminStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/MagentoAdminPageObject.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/MagentoCustomerPageObject.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerHomePage.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/features/magentoCustomer/MagentoCustomer.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java" />
       </list>
     </option>
   </component>
@@ -289,6 +332,24 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="features" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="selenium-on-magento" type="b2602c69:ProjectViewProjectNode" />
+              <item name="selenium-on-magento" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="magentoAdmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selenium-on-magento" type="b2602c69:ProjectViewProjectNode" />
+              <item name="selenium-on-magento" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="magentoCustomer" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -299,7 +360,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552577230562" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552666142878" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -308,17 +369,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\selenium-on-magento\src\test\resources\features\magentoCustomer" />
+      <recent name="C:\selenium-on-magento\src\test\resources\features\magentoAdmin" />
       <recent name="C:\selenium-on-magento\tests-magento-customer\src\main\java\steps" />
       <recent name="C:\selenium-on-magento\tests-magento-admin\src\main\java\steps" />
       <recent name="C:\selenium-on-magento\tests-magento-customer\src\main\java\pages" />
-      <recent name="C:\selenium-on-magento\tests-magento-admin\src\main\java\pages" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.endava.utils" />
+      <recent name="com.endava.magentoCustomer.pages" />
       <recent name="com.endava.magentoCustomer.steps" />
       <recent name="com.endava.magentoAdmin.steps" />
       <recent name="com.endava.pages.magentoCustomer" />
-      <recent name="com.endava.steps" />
-      <recent name="com.endava.pages" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\selenium-on-magento\src\test\java\com\endava\magentoCustomer" />
@@ -340,7 +402,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber java.Scenario: Make an order as an existing customer with two different products">
+  <component name="RunManager" selected="Cucumber java.Scenario: Log in with an invalid customer account">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -355,8 +417,8 @@
     </configuration>
     <configuration name="Scenario: Change the Basic Converge Payment Settings for all the store views" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature" />
-      <option name="GLUE" value="com.endava.steps" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/magentoAdmin/MagentoAdmin.feature" />
+      <option name="GLUE" value="com.endava.magentoCustomer.steps com.endava.magentoAdmin.steps" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <module name="selenium-on-magento" />
       <option name="NAME_FILTER" value="^Change the Basic Converge Payment Settings for all the store views$" />
@@ -374,8 +436,8 @@
     </configuration>
     <configuration name="Scenario: Log in with an invalid admin account" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature" />
-      <option name="GLUE" value="com.endava.steps" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/magentoAdmin/MagentoAdmin.feature" />
+      <option name="GLUE" value="com.endava.magentoCustomer.steps com.endava.magentoAdmin.steps" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <module name="selenium-on-magento" />
       <option name="NAME_FILTER" value="^Log in with an invalid admin account$" />
@@ -391,15 +453,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Make an order as an existing customer with two different products" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Log in with an invalid customer account" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature" />
-      <option name="GLUE" value="com.endava.magentoAdmin.steps com.endava.magentoCustomer.steps" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/magentoCustomer/MagentoCustomer.feature" />
+      <option name="GLUE" value="com.endava.magentoCustomer.steps com.endava.magentoAdmin.steps" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <module name="selenium-on-magento" />
-      <option name="NAME_FILTER" value="^Make an order as an existing customer with two different products$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Make an order as an existing customer with two different products$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Make an order as an existing customer with two different products" />
+      <option name="NAME_FILTER" value="^Log in with an invalid customer account$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Log in with an invalid customer account$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Log in with an invalid customer account" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cucumber.api.cli.*" />
@@ -410,16 +472,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunCukesByTags" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RunMagentoAdminCukesByTags" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="selenium-on-magento" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.endava.*" />
+          <option name="PATTERN" value="com.endava.magentoAdmin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.endava" />
-      <option name="MAIN_CLASS_NAME" value="com.endava.RunCukesByTags" />
+      <option name="PACKAGE_NAME" value="com.endava.magentoAdmin" />
+      <option name="MAIN_CLASS_NAME" value="com.endava.magentoAdmin.RunMagentoAdminCukesByTags" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunMagentoCustomerCukesByTags" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenium-on-magento" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.endava.magentoCustomer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.endava.magentoCustomer" />
+      <option name="MAIN_CLASS_NAME" value="com.endava.magentoCustomer.RunMagentoCustomerCukesByTags" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -450,18 +528,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="JUnit.RunCukesByTags" />
-      <item itemvalue="Cucumber java.Scenario: Log in with an invalid admin account" />
-      <item itemvalue="Cucumber java.Scenario: Change the Basic Converge Payment Settings for all the store views" />
-      <item itemvalue="Cucumber java.Scenario: Make an order as an existing customer with two different products" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber java.Scenario: Make an order as an existing customer with two different products" />
-        <item itemvalue="Cucumber java.Scenario: Log in with an invalid admin account" />
+        <item itemvalue="Cucumber java.Scenario: Log in with an invalid customer account" />
         <item itemvalue="Cucumber java.Scenario: Change the Basic Converge Payment Settings for all the store views" />
-        <item itemvalue="JUnit.RunCukesByTags" />
+        <item itemvalue="JUnit.RunMagentoCustomerCukesByTags" />
+        <item itemvalue="JUnit.RunMagentoAdminCukesByTags" />
+        <item itemvalue="Cucumber java.Scenario: Log in with an invalid admin account" />
       </list>
     </recent_temporary>
   </component>
@@ -482,7 +555,7 @@
       <workItem from="1551683559069" duration="57393000" />
       <workItem from="1552052640511" duration="3077000" />
       <workItem from="1552464537936" duration="36486000" />
-      <workItem from="1552571639926" duration="5576000" />
+      <workItem from="1552571639926" duration="25798000" />
     </task>
     <task id="LOCAL-00001" summary="Small update on HomePage">
       <created>1551365593112</created>
@@ -533,43 +606,50 @@
       <option name="project" value="LOCAL" />
       <updated>1552490494687</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Some changes">
+      <created>1552577275116</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1552577275116</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 16h 45m 22s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 17h 01m 59s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 16h 48m 39s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 17h 52m 55s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 16h 52m 55s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 17h 53m 40s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 16h 54m 56s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 17h 54m 15s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 17h 01m 10s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 17h 55m 50s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 17h 03m 32s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 17h 56m 43s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 17h 04m 03s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 18h 00m 32s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 17h 15m 12s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RunMagentoCustomerCukesByTags - 2019.03.15 at 18h 03m 59s.xml">
+      <configuration name="RunMagentoCustomerCukesByTags" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Log_in_with_an_invalid_admin_account - 2019.03.14 at 17h 24m 56s.xml">
-      <configuration name="Scenario: Log in with an invalid admin account" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__Change_the_Basic_Converge_Payment_Settings_for_all_the_store_views - 2019.03.15 at 18h 06m 01s.xml">
+      <configuration name="Scenario: Change the Basic Converge Payment Settings for all the store views" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__Make_an_order_as_an_existing_customer_with_two_different_products - 2019.03.14 at 17h 27m 11s.xml">
-      <configuration name="Scenario: Make an order as an existing customer with two different products" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__Log_in_with_an_invalid_customer_account - 2019.03.15 at 18h 07m 01s.xml">
+      <configuration name="Scenario: Log in with an invalid customer account" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149167000" />
+    <option name="totallyTimeSpent" value="169389000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
@@ -618,57 +698,10 @@
     <MESSAGE value="Refactored some old methods" />
     <MESSAGE value="Switched to another Mag. version and made the necessary updates" />
     <MESSAGE value="Created the feature files for Admin and Customer and the stepdefs files for each one plus some updates on the old files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created the feature files for Admin and Customer and the stepdefs files for each one plus some updates on the old files" />
+    <MESSAGE value="Some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/utils/UtilityMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1529">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminLoginPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="43" column="60" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/pages/magentoAdmin/MagentoAdminDashboardPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerStepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/pages/magentoCustomer/MagentoCustomerHomePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="126" column="5" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/steps/MagentoAdminStepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/magentoCustomer/MagentoCustomerShippingCheckoutPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -711,15 +744,6 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoCustomerShippingCheckoutPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminDashboardPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminConfigurationPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminLoginPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoCustomerOrderPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -730,9 +754,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoCustomerProductsCategoryPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminPaymentMethodsPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoCustomerPaymentsCheckoutPage.java">
@@ -747,9 +768,6 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoCustomerSuccessPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerShippingCheckoutPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoAdminDashboardPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -759,87 +777,198 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoAdminLoginPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerOrderPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductsCategoryPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoAdminPaymentMethodsPage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerPaymentsCheckoutPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerLoginPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerSuccessPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerHomePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoAdminStepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/MagentoAdminPageObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding>
-            <element signature="e#3736#3737#0" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/MagentoCustomerPageObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/features/MagentoAdmin.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerStepDefs.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/utils/TestConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        <state relative-caret-position="-1548">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/RunMagentoCustomerCukesByTags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" lean-forward="true" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/utils/ReusableWebDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerMyDashboardPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/features/MagentoCustomer.feature">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerSuccessPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/RunMagentoAdminCukesByTags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerPaymentsCheckoutPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminDashboardPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerOrderPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerLoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductsCategoryPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerShippingCheckoutPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerProductPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminConfigurationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminPaymentMethodsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/MagentoCustomerPageObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200">
+          <caret line="31" column="68" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/steps/MagentoAdminStepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="101" column="49" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1551#1552#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/MagentoAdminPageObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoAdmin/pages/MagentoAdminLoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/utils/UtilityMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding>
+            <element signature="e#926#927#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/features/magentoCustomer/MagentoCustomer.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/features/magentoAdmin/MagentoAdmin.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/pages/MagentoCustomerHomePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/endava/magentoCustomer/steps/MagentoCustomerStepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
         </state>
       </provider>
     </entry>

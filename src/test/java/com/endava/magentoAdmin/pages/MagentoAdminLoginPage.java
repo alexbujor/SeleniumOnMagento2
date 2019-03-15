@@ -36,13 +36,12 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
     }
 
     public MagentoAdminDashboardPage pressSignInButton() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(signInButton);
         utilityMethods.clickAnElement(signInButton);
         return new MagentoAdminDashboardPage(driver);
     }
 
     public boolean invalidCredentialsErrorMessageIsDisplayed() {
-        if (utilityMethods.elementIsVisible(logInErrorMessageCssSelector)) {
+        if (utilityMethods.elementIsVisible(By.cssSelector(logInErrorMessageCssSelector))) {
             WebElement message = driver.findElement(By.cssSelector(logInErrorMessageCssSelector));
             return (message.getText().equals("You did not sign in correctly or your account is temporarily disabled."));
         }
@@ -50,7 +49,7 @@ public class MagentoAdminLoginPage extends LoadableComponent<MagentoAdminLoginPa
     }
 
     public boolean invalidFormKeyErrorMessageIsDisplayed() {
-        if (utilityMethods.elementIsVisible(logInErrorMessageCssSelector)) {
+        if (utilityMethods.elementIsVisible(By.cssSelector(logInErrorMessageCssSelector))) {
             WebElement message = driver.findElement(By.cssSelector(logInErrorMessageCssSelector));
             return (message.getText().equals("Invalid Form Key. Please refresh the page."));
         }

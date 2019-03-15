@@ -33,13 +33,12 @@ public class MagentoCustomerOrderPage {
     }
 
     public MagentoCustomerHomePage pressSignInButton() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(signInButton);
         utilityMethods.clickAnElement(signInButton);
         return new MagentoCustomerHomePage(driver);
     }
 
     public boolean logInErrorMessageIsDisplayed() {
-        if (utilityMethods.elementIsVisible(invalidLogInMessageCssSelector)) {
+        if (utilityMethods.elementIsVisible(By.cssSelector(invalidLogInMessageCssSelector))) {
             WebElement message = driver.findElement(By.cssSelector(invalidLogInMessageCssSelector));
             return (message.getText().equals("Invalid login or password."));
         }

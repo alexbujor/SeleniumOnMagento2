@@ -41,15 +41,13 @@ public class MagentoCustomerProductPage {
     }
 
     public void addProductToCart(String quantity) throws InterruptedException {
-        utilityMethods.waitForElementVisibility(quantityTextField);
         utilityMethods.populateField(quantityTextField, quantity);
-        utilityMethods.waitForElementVisibility(addToCartButton);
         utilityMethods.clickAnElement(addToCartButton);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public boolean successfullyAddedToCartMessageDisplayed() {
-        if (utilityMethods.elementIsVisible(successMessageCssSelector)) {
+        if (utilityMethods.elementIsVisible(By.cssSelector(successMessageCssSelector))) {
             WebElement message = driver.findElement(By.cssSelector(successMessageCssSelector));
             return (message.getText().equals("You added " + productPageTitle + " to your shopping cart."));
         }

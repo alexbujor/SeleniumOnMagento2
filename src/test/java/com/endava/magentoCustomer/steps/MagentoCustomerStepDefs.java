@@ -1,9 +1,6 @@
 package com.endava.magentoCustomer.steps;
 
-import com.endava.magentoCustomer.pages.MagentoCustomerHomePage;
-import com.endava.magentoCustomer.pages.MagentoCustomerLoginPage;
-import com.endava.magentoCustomer.pages.MagentoCustomerProductPage;
-import com.endava.magentoCustomer.pages.MagentoCustomerProductsCategoryPage;
+import com.endava.magentoCustomer.pages.*;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -19,13 +16,13 @@ public class MagentoCustomerStepDefs {
     private static WebDriver driver;
     private MagentoCustomerHomePage magentoCustomerHomePage;
     private MagentoCustomerLoginPage magentoCustomerLoginPage;
+    private MagentoCustomerMyDashboardPage magentoCustomerMyDashboardPage;
     private MagentoCustomerProductsCategoryPage magentoCustomerProductsCategoryPage;
     private MagentoCustomerProductPage magentoCustomerProductPage;
     private static final String PATH_TO_CHROMEDRIVER = "C:/chromedriver.exe";
 
     @Before
     public void setupMagentoCustomerChromeDriver() {
-        System.out.println("caca");
         System.setProperty("webdriver.chrome.driver", PATH_TO_CHROMEDRIVER);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
@@ -36,7 +33,6 @@ public class MagentoCustomerStepDefs {
 
     @After
     public void tearDownMagentoCustomerChromeDriver() {
-        System.out.println("styjstjstyk");
         driver.quit();
     }
 
@@ -53,20 +49,20 @@ public class MagentoCustomerStepDefs {
     }
 
     @And("^(?:he|customer) enters the email (.*) and the password (.*) for Customer Login page$")
-    public void enterMagentoCustomerLogInCredentials(String username, String password) throws InterruptedException {
-        magentoCustomerLoginPage.fillLoginFields(username, password);
+    public void enterMagentoCustomerLogInCredentials(String email, String password) throws InterruptedException {
+        magentoCustomerLoginPage.fillLoginFields(email, password);
     }
 
     @And("^(?:he|customer) presses the Sign in button on the Customer Login page")
-    public void adminLogInPressSignIn() throws Throwable {
-        magentoCustomerHomePage = magentoCustomerLoginPage.pressSignInButton();
+    public void customerLogInPressSignIn() throws Throwable {
+        magentoCustomerMyDashboardPage = magentoCustomerLoginPage.pressSignInButton();
     }
 
-    @And("^(?:he|customer) (is|isn't) redirected back to the Home page after logging in")
-    public void goToDashboardAfterLogIn(String argument) {
+    @And("^(?:he|customer) (is|isn't) redirected to the My Dashboard page after logging in")
+    public void goToHomeAfterLogIn(String argument) {
         if (argument.equals("is"))
-            Assert.assertTrue("Magento Admin Dashboard page is not opened", magentoCustomerHomePage.isOpened());
-        else Assert.assertFalse("Magento Admin Dashboard page is opened", magentoCustomerHomePage.isOpened());
+            Assert.assertTrue("Magento Customer My Dashboard page is not opened", magentoCustomerMyDashboardPage.isOpened());
+        else Assert.assertTrue("Magento Customer Login page is not opened", magentoCustomerLoginPage.isOpened());
     }
 
     @Then("^(?:he|customer) can see the invalid login error message on Customer Login page")
@@ -74,7 +70,7 @@ public class MagentoCustomerStepDefs {
         Assert.assertTrue("Error message not displayed", magentoCustomerLoginPage.logInErrorMessageIsDisplayed());
     }
 
-    @And("^(?:he|customer) clears the cart")
+    @And("^(?:he|customer) clears the cart if it's not empty")
     public void clearTheCart() throws InterruptedException {
         magentoCustomerHomePage.clearTheCart();
         Assert.assertTrue("The cart is not empty", magentoCustomerHomePage.cartIsEmpty());
@@ -86,7 +82,7 @@ public class MagentoCustomerStepDefs {
         Assert.assertTrue("The page for that category of products is not found", magentoCustomerProductsCategoryPage.isOpened());
     }
 
-    @And("^(?:he|customer) chooses the (.*) product with the price (.*)$")
+    @And("^(?:he|customer) chooses the (.*) product which has the price (.*)$")
     public void goToProductPage(String productName, String productPrice) throws InterruptedException {
         magentoCustomerProductPage = magentoCustomerProductsCategoryPage.goToProductPage(productName, productPrice);
         Assert.assertTrue("The product does not exist", magentoCustomerProductPage.isOpened());

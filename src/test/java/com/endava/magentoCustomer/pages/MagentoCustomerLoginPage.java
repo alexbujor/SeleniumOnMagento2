@@ -17,7 +17,7 @@ public class MagentoCustomerLoginPage {
     @FindBy(id = "send2")
     private WebElement signInButton;
 
-    private String invalidLogInMessageCssSelector = "div#message-error > div";
+    private String invalidLogInMessageCssSelector = ".messages > div > div";
 
     private UtilityMethods utilityMethods;
 
@@ -27,19 +27,18 @@ public class MagentoCustomerLoginPage {
         this.utilityMethods = new UtilityMethods(driver);
     }
 
-    public void fillLoginFields(String user, String password) throws InterruptedException {
-        utilityMethods.populateField(emailField, user);
+    public void fillLoginFields(String email, String password) throws InterruptedException {
+        utilityMethods.populateField(emailField, email);
         utilityMethods.populateField(passwordField, password);
     }
 
-    public MagentoCustomerHomePage pressSignInButton() throws InterruptedException {
-        utilityMethods.waitForElementVisibility(signInButton);
+    public MagentoCustomerMyDashboardPage pressSignInButton() throws InterruptedException {
         utilityMethods.clickAnElement(signInButton);
-        return new MagentoCustomerHomePage(driver);
+        return new MagentoCustomerMyDashboardPage(driver);
     }
 
     public boolean logInErrorMessageIsDisplayed() {
-        if (utilityMethods.elementIsVisible(invalidLogInMessageCssSelector)) {
+        if (utilityMethods.elementIsVisible(By.cssSelector(invalidLogInMessageCssSelector))) {
             WebElement message = driver.findElement(By.cssSelector(invalidLogInMessageCssSelector));
             return (message.getText().equals("Invalid login or password."));
         }

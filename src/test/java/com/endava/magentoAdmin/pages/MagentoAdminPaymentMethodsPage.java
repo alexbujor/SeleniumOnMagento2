@@ -49,21 +49,15 @@ public class MagentoAdminPaymentMethodsPage {
     }
 
     public void changeTheStoreView(String storeView) throws InterruptedException {
-        utilityMethods.waitForElementVisibility(storeViewSelector);
         utilityMethods.clickAnElement(storeViewSelector);
         if (!getCurrentStoreView().equals(storeView)) {
             utilityMethods.clickElementWithChildFromList(storeViewCssSelector, "a", storeView);
-            utilityMethods.waitForElementVisibility(confirmStoreViewChange);
             utilityMethods.clickAnElement(confirmStoreViewChange);
         } else utilityMethods.clickAnElement(storeViewSelector);
     }
 
-    private void scrollToAuthorizeNetDropDown() throws InterruptedException {
-        utilityMethods.scrollToAnElement(authorizeNetDropDown);
-    }
-
     public void changeBasicConvergePaymentSettings(String enabled, String title, String paymentAction, String integrationMethod) throws InterruptedException {
-        scrollToAuthorizeNetDropDown();
+        utilityMethods.scrollToAnElement(authorizeNetDropDown);
         utilityMethods.clickAnElement(basicConvergePaymentSettings);
         utilityMethods.changeDropDownField(enabledDropDown, enabled);
         utilityMethods.changeTextField(titleTextField, title);
