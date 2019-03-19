@@ -25,6 +25,6 @@ public class MagentoCustomerSuccessPage {
     }
 
     public boolean isOpened() {
-        return "Customer Login".equals(driver.getTitle());
+        return "Success Page".equals(driver.getTitle());
     }
 }

@@ -29,7 +29,7 @@ public class MagentoAdminStepDefs {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
-        options.setHeadless(false);
+        options.setHeadless(true);
         driver = new ChromeDriver(options);
     }
 

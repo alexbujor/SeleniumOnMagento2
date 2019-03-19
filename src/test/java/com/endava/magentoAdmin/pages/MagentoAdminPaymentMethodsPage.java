@@ -27,8 +27,6 @@ public class MagentoAdminPaymentMethodsPage {
     private WebElement paymentActionDropDown;
     @FindBy(id = "payment_us_converge_gateway_converge_gateway_options_integration_method")
     private WebElement integrationMethodDropDown;
-    @FindBy(id = "payment_us_converge_gateway_converge_gateway_options_tokenization")
-    private WebElement tokenizationDropDown;
     @FindBy(id = "save")
     private WebElement saveConfigButton;
     @FindBy(css = "div#messages > div.messages > div.message.message-success.success")
@@ -51,7 +49,7 @@ public class MagentoAdminPaymentMethodsPage {
     public void changeTheStoreView(String storeView) throws InterruptedException {
         utilityMethods.clickAnElement(storeViewSelector);
         if (!getCurrentStoreView().equals(storeView)) {
-            utilityMethods.clickElementWithChildFromList(storeViewCssSelector, "a", storeView);
+            utilityMethods.clickElementWithChildFromListIfFound(storeViewCssSelector, "a", storeView);
             utilityMethods.clickAnElement(confirmStoreViewChange);
         } else utilityMethods.clickAnElement(storeViewSelector);
     }

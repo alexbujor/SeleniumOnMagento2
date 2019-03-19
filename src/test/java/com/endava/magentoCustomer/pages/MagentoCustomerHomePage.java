@@ -59,12 +59,12 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     public void changeTheStoreView(String storeView) throws InterruptedException {
         utilityMethods.clickAnElement(storeViewSelector);
         if (!getCurrentStoreView().equals(storeView)) {
-            utilityMethods.clickElementWithChildFromList(storeViewDropdownCssSelector, "a > span", storeView);
+            utilityMethods.clickElementWithChildFromListIfFound(storeViewDropdownCssSelector, "a > span", storeView);
         } else utilityMethods.clickAnElement(storeViewSelector);
     }
 
     public MagentoCustomerProductsCategoryPage goToCategoryOfProducts(String category) throws InterruptedException {
-        utilityMethods.clickElementFromList(productsCategoriesMenuCssSelector, category);
+        utilityMethods.clickElementFromListIfFound(productsCategoriesMenuCssSelector, category);
         return new MagentoCustomerProductsCategoryPage(driver, category);
     }
 
@@ -76,7 +76,7 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     public void clearTheCart() throws InterruptedException {
         if (!cartIsEmpty()) {
             utilityMethods.clickAnElement(miniCartButton);
-            while (utilityMethods.elementIsVisible(By.cssSelector(firstRemoveButtonCssSelector))) {
+            while (!cartIsEmpty()) {
                 utilityMethods.clickAnElement(driver.findElement(By.cssSelector(firstRemoveButtonCssSelector)));
                 utilityMethods.clickAnElement(acceptCartItemRemoval);
                 utilityMethods.waitSomeMillis(1000);
@@ -85,7 +85,7 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
         }
     }
 
-    public boolean checkProductInCartAndRemove(String name, String price, String quantity, Boolean removeProduct) throws InterruptedException {
+    public boolean checkProductInCartAndRemoveIfDesired(String name, String price, String quantity, Boolean removeProduct) throws InterruptedException {
         utilityMethods.waitForElementVisibility(miniCartButton);
         utilityMethods.clickAnElement(miniCartButton);
         WebElement productName;
@@ -115,6 +115,7 @@ public class MagentoCustomerHomePage extends LoadableComponent<MagentoCustomerHo
     }
 
     public MagentoCustomerShippingCheckoutPage goToCheckout() throws InterruptedException {
+        utilityMethods.clickAnElement(miniCartButton);
         utilityMethods.clickAnElement(goToCheckoutButton);
         return new MagentoCustomerShippingCheckoutPage(driver);
     }

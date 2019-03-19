@@ -50,14 +50,14 @@ public class MagentoCustomerPageObject {
         Assert.assertTrue("The product does not exist", magentoCustomerProductPage.isOpened());
         magentoCustomerProductPage.addProductToCart(magentoCustomerProductQuantity);
         Assert.assertTrue("The confirmation message cannot be seen", magentoCustomerProductPage.successfullyAddedToCartMessageDisplayed());
-        Assert.assertTrue("The product was not added to the cart", magentoCustomerHomePage.checkProductInCartAndRemove(magentoCustomerProductName, magentoCustomerProductPrice, magentoCustomerProductQuantity, false));
+        Assert.assertTrue("The product was not added to the cart", magentoCustomerHomePage.checkProductInCartAndRemoveIfDesired(magentoCustomerProductName, magentoCustomerProductPrice, magentoCustomerProductQuantity, false));
         magentoCustomerProductsCategoryPage = magentoCustomerHomePage.goToCategoryOfProducts("Books");
         Assert.assertTrue("The page for that category of products is not found", magentoCustomerProductsCategoryPage.isOpened());
         magentoCustomerProductPage = magentoCustomerProductsCategoryPage.goToProductPage("Wizard of Oz", "2.00");
         Assert.assertTrue("The product does not exist", magentoCustomerProductPage.isOpened());
         magentoCustomerProductPage.addProductToCart("5");
         Assert.assertTrue("The confirmation message cannot be seen", magentoCustomerProductPage.successfullyAddedToCartMessageDisplayed());
-        Assert.assertTrue("The product was not added to the cart", magentoCustomerHomePage.checkProductInCartAndRemove("Wizard of Oz", "2.00", "5", false));
+        Assert.assertTrue("The product was not added to the cart", magentoCustomerHomePage.checkProductInCartAndRemoveIfDesired("Wizard of Oz", "2.00", "5", false));
     }
 
     @Before

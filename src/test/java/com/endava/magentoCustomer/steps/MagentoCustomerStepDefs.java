@@ -19,6 +19,9 @@ public class MagentoCustomerStepDefs {
     private MagentoCustomerMyDashboardPage magentoCustomerMyDashboardPage;
     private MagentoCustomerProductsCategoryPage magentoCustomerProductsCategoryPage;
     private MagentoCustomerProductPage magentoCustomerProductPage;
+    private MagentoCustomerShippingCheckoutPage magentoCustomerShippingCheckoutPage;
+    private MagentoCustomerPaymentsCheckoutPage magentoCustomerPaymentsCheckoutPage;
+    private MagentoCustomerSuccessPage magentoCustomerSuccessPage;
     private static final String PATH_TO_CHROMEDRIVER = "C:/chromedriver.exe";
 
     @Before
@@ -31,10 +34,10 @@ public class MagentoCustomerStepDefs {
         driver = new ChromeDriver(options);
     }
 
-    @After
-    public void tearDownMagentoCustomerChromeDriver() {
-        driver.quit();
-    }
+//    @After
+//    public void tearDownMagentoCustomerChromeDriver() {
+//        driver.quit();
+//    }
 
     @Given("(?:he|customer) opens the Magento Customer Home page")
     public void openMagentoCustomerHome() {
@@ -76,7 +79,7 @@ public class MagentoCustomerStepDefs {
         Assert.assertTrue("The cart is not empty", magentoCustomerHomePage.cartIsEmpty());
     }
 
-    @When("^(?:he|customer) goes the (.*) category of products$")
+    @When("^(?:he|customer) goes to the (.*) category of products$")
     public void goToProductCategoryPage(String productCategory) throws InterruptedException {
         magentoCustomerProductsCategoryPage = magentoCustomerHomePage.goToCategoryOfProducts(productCategory);
         Assert.assertTrue("The page for that category of products is not found", magentoCustomerProductsCategoryPage.isOpened());
@@ -96,6 +99,51 @@ public class MagentoCustomerStepDefs {
     @Then("^a quantity of (.*) (?:product|products) with the name (.*) and price (.*) was successfully added to the cart$")
     public void selectAndAddProductToCart(String productQuantity, String productName, String productPrice) throws InterruptedException {
         Assert.assertTrue("The confirmation message cannot be seen", magentoCustomerProductPage.successfullyAddedToCartMessageDisplayed());
-        Assert.assertTrue("The product was not added to the cart", magentoCustomerHomePage.checkProductInCartAndRemove(productName, productPrice, productQuantity, false));
+        Assert.assertTrue("The product was not added to the cart", magentoCustomerHomePage.checkProductInCartAndRemoveIfDesired(productName, productPrice, productQuantity, false));
+    }
+
+    @When("^(?:he|customer) goes to the shipping information checkout page")
+    public void goToShippingInformationCheckout() throws InterruptedException {
+        magentoCustomerShippingCheckoutPage = magentoCustomerHomePage.goToCheckout();
+        Assert.assertTrue("The shipping information checkout page is not open", magentoCustomerShippingCheckoutPage.isOpened());
+    }
+
+    @And("(?:he|customer) selects the shipping method with the name (.*) which has the price (.*) and the carrier (.*)$")
+    public void selectShippingMethod(String shippingMethodTitle, String shippingMethodPrice, String shippingMethodCarrierTitle) throws InterruptedException {
+        Assert.assertTrue("The shipping method was not found", magentoCustomerShippingCheckoutPage.selectShippingMethod(shippingMethodPrice, shippingMethodTitle, shippingMethodCarrierTitle));
+    }
+
+    @And("^(?:he|customer) proceeds to the payments checkout page")
+    public void goToPaymentsCheckoutPage() throws InterruptedException {
+        magentoCustomerPaymentsCheckoutPage = magentoCustomerShippingCheckoutPage.goToPaymentsCheckoutPage();
+        Assert.assertTrue("The payments checkout page is not open", magentoCustomerPaymentsCheckoutPage.isOpened());
+    }
+
+    @And("^(?:he|customer) selects the payment method with the name (.*)$")
+    public void selectPaymentMethod(String paymentMethodTitle) throws InterruptedException {
+        Assert.assertTrue("The payment method was not found", magentoCustomerPaymentsCheckoutPage.selectPaymentMethod(paymentMethodTitle));
+    }
+
+    @And("^(?:he|customer) enters the card number (.*), expiration date MM/YY (.*)/(.*) and the CVV number (.*),(| without) saving the card for later use$")
+    public void enterCreditCardDetails(String cardNumber, String expirationMonth, String expirationYear, String cvv, String argument) throws InterruptedException {
+        if (argument.equals("without"))
+            magentoCustomerPaymentsCheckoutPage.enterCreditCardDetails(cardNumber, expirationMonth, expirationYear, cvv, false);
+        else
+            magentoCustomerPaymentsCheckoutPage.enterCreditCardDetails(cardNumber, expirationMonth, expirationYear, cvv, true);
+    }
+
+    @And("^(?:he|customer) places the order")
+    public void placeTheOrder() throws InterruptedException {
+        magentoCustomerSuccessPage = magentoCustomerPaymentsCheckoutPage.placeTheOrder();
+    }
+
+    @Then("^The order is declined")
+    public void orderIsDeclined() {
+        Assert.assertTrue("The transaction is not declined", magentoCustomerPaymentsCheckoutPage.transactionDeclinedMessageDisplayed());
+    }
+
+    @Then("(?:he|customer) can see the confirmation message that the order was created, in a new page")
+    public void orderIsSuccessful() {
+        Assert.assertTrue("The order success page is not open", magentoCustomerSuccessPage.isOpened());
     }
 }

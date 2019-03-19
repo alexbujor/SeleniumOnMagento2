@@ -1,26 +1,33 @@
 @magentoCustomerFunctionality
 Feature: Magento Customer
 
-  Scenario Outline: Make an order as an existing customer with two different products
+  Scenario Outline: Make orders with different amounts as an existing customer
     Given customer opens the Magento Customer Home page
     And he goes to the Magento Customer Login page
     And he enters the email Shahraeh@jymfit.info and the password @Lex1234 for Customer Login page
     And he presses the Sign in button on the Customer Login page
     And he is redirected to the My Dashboard page after logging in
     And he clears the cart if it's not empty
-    When he goes the <productCategory1> category of products
-    And he chooses the <productName1> product which has the price <price1>
-    And he adds to the cart a quantity of <quantity1> products
-    Then a quantity of <quantity1> products with the name <productName1> and price <price1> was successfully added to the cart
-    When he goes the <productCategory2> category of products
-    And he chooses the <productName2> product which has the price <price2>
-    And he adds to the cart a quantity of <quantity2> products
-    Then a quantity of <quantity2> products with the name <productName2> and price <price2> was successfully added to the cart
+    When he goes to the Drinks category of products
+    And he chooses the Brandy - Plum product which has the price 1.01
+    And he adds to the cart a quantity of <quantity> products
+    Then a quantity of <quantity> products with the name Brandy - Plum and price 1.01 was successfully added to the cart
+    When customer goes to the shipping information checkout page
+    And he selects the shipping method with the name Fixed which has the price 5.00 and the carrier Flat Rate
+    And he goes to the Payment Methods page
+    And he selects the payment method with the name Elavon Main Website
+    And he enters the card number 4159282222222221, expiration date MM/YY 12/19 and the CVV number 123, without saving the card for later use
+    And he places the order
+    Then customer can see the confirmation message that the order was created, in a new page
 
     Examples:
-      | productCategory1 | productCategory2 | productName1  | productName2  | quantity1 | quantity2 | price1 | price2 |
-      | Drinks           | Bikes            | Brandy - Plum | rukavice      | 10        | 7         | 1.01   | 1.00   |
-      | Bikes            | Drinks           | rukavice      | Brandy - Plum | 5         | 14        | 1.00   | 1.01   |
+      | quantity |
+      | 8        |
+#      | 24       |
+#      | 40       |
+#      | 56       |
+#      | 70       |
+#      | 95       |
 
 
   Scenario: Log in with an invalid customer account

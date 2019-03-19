@@ -36,8 +36,8 @@ public class MagentoCustomerPaymentsCheckoutPage {
         this.utilityMethods = new UtilityMethods(driver);
     }
 
-    public void selectPaymentMethod(String paymentMethod) throws InterruptedException {
-        utilityMethods.clickElementFromList(paymentMethodsCssSelector, paymentMethod);
+    public boolean selectPaymentMethod(String paymentMethod) throws InterruptedException {
+        return utilityMethods.clickElementFromListIfFound(paymentMethodsCssSelector, paymentMethod);
     }
 
     public void enterCreditCardDetails(String cardNumber, String expirationMonth, String expirationYear, String CVV, Boolean saveForLaterUse) throws InterruptedException {

@@ -25,7 +25,7 @@ public class UtilityMethods {
     }
 
     public void waitForElementVisibility(WebElement element) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
     }
 
     public boolean elementIsVisible(By selector) {
@@ -93,27 +93,19 @@ public class UtilityMethods {
         chooseOptionFromDropDown(field, valueToChange);
     }
 
-    public boolean elementIsInList(String cssSelector, String elementToFind) {
-        List<WebElement> elementsList = driver.findElements(By.cssSelector(cssSelector));
-        for (WebElement element : elementsList) {
-            if (element.getText().equals(elementToFind))
-                return true;
-        }
-        return false;
-    }
-
-    public void clickElementFromList(String cssSelector, String elementToClick) throws InterruptedException {
+    public boolean clickElementFromListIfFound(String cssSelector, String elementToClick) throws InterruptedException {
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
         List<WebElement> listOfElements = driver.findElements(By.cssSelector(cssSelector));
         for (WebElement elementFromList : listOfElements) {
             if (elementFromList.getText().equals(elementToClick)) {
                 clickAnElement(elementFromList);
-                break;
+                return true;
             }
         }
+        return false;
     }
 
-    public void clickElementWithChildFromList(String parentCssSelector, String childCssSelector, String elementToClick) throws InterruptedException {
+    public boolean clickElementWithChildFromListIfFound(String parentCssSelector, String childCssSelector, String elementToClick) throws InterruptedException {
         Integer childNumber = 0;
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(parentCssSelector)));
         List<WebElement> listOfElements = driver.findElements(By.cssSelector(parentCssSelector));
@@ -123,9 +115,10 @@ public class UtilityMethods {
                 WebElement childOfElementFromList = elementFromList.findElement(By.cssSelector(childCssSelector));
                 if (childOfElementFromList.getText().equals(elementToClick)) {
                     clickAnElement(elementFromList);
-                    break;
+                    return true;
                 }
             }
         }
+        return false;
     }
 }
