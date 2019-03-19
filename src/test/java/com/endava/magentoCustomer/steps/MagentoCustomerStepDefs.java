@@ -34,10 +34,10 @@ public class MagentoCustomerStepDefs {
         driver = new ChromeDriver(options);
     }
 
-//    @After
-//    public void tearDownMagentoCustomerChromeDriver() {
-//        driver.quit();
-//    }
+    @After
+    public void tearDownMagentoCustomerChromeDriver() {
+        driver.quit();
+    }
 
     @Given("(?:he|customer) opens the Magento Customer Home page")
     public void openMagentoCustomerHome() {
